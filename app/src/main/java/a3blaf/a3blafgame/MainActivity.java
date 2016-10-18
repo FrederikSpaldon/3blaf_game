@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView a=(TextView) findViewById(R.id.text);
-        a.setText("3BLAF GAME");
+        a.setText("3BLAF GAME"); // text
         a.setTextColor(Color.RED);
     }
 }
