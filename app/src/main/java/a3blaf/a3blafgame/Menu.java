@@ -34,10 +34,10 @@ public class Menu extends Activity {
         multiPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Menu.this,
+                /*Intent intent = new Intent(Menu.this,
                         MultiplayerActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
         options.setOnClickListener(new View.OnClickListener() {
