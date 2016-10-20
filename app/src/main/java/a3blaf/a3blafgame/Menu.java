@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class Menu extends Activity {
 
-    Button singlePlayer, multiPlayer, options;
+    Button singlePlayer, multiPlayer, options, newQuestion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,7 @@ public class Menu extends Activity {
         singlePlayer = (Button) findViewById(R.id.bnt_singlePlayer);
         multiPlayer = (Button) findViewById(R.id.btn_multiPlayer);
         options = (Button) findViewById(R.id.btn_options);
+        newQuestion = (Button) findViewById(R.id.btn_newQuestion);
 
         singlePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +48,16 @@ public class Menu extends Activity {
                         To Do);
                 startActivity(intent);
                 finish();*/
+            }
+        });
+
+        newQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this,
+                        AddQuestion.class);
+                startActivity(intent);
+                finish();
             }
         });
 

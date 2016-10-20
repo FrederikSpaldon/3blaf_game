@@ -33,5 +33,9 @@
             android:name=".FinalActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AddQuestion"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>
