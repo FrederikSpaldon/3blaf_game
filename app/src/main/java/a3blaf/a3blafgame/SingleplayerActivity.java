@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -44,6 +45,11 @@ public class SingleplayerActivity extends Activity {
         option2 = (Button) findViewById(R.id.button2);
         option3 = (Button) findViewById(R.id.button3);
 
+
+
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
+
+
         // the textview in which score will be displayed
         scored = (TextView) findViewById(R.id.score);
 
@@ -65,6 +71,7 @@ public class SingleplayerActivity extends Activity {
             public void onClick(View v) {
                 // passing the button text to check whether the anser is correct or not
                 getAnswer(option1.getText().toString());
+                mp.start();
             }
         });
 
@@ -72,6 +79,7 @@ public class SingleplayerActivity extends Activity {
             @Override
             public void onClick(View v) {
                 getAnswer(option2.getText().toString());
+                mp.start();
             }
         });
 
@@ -79,6 +87,7 @@ public class SingleplayerActivity extends Activity {
             @Override
             public void onClick(View v) {
                 getAnswer(option3.getText().toString());
+                mp.start();
             }
         });
     }
