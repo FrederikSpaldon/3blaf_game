@@ -81,6 +81,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         dbase.insert(TABLE_QUEST, null, values);
     }
 
+    public void addOwnQuestion(Question quest){
+        dbase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_QUES, quest.getQUESTION());
+        values.put(KEY_ANSWER, quest.getANSWER());
+        values.put(KEY_OPTA, quest.getOPTA());
+        values.put(KEY_OPTB, quest.getOPTB());
+        values.put(KEY_OPTC, quest.getOPTC());
+
+        dbase.insert(TABLE_QUEST, null, values);
+    }
+
     public List<Question> getAllQuestions() {
         List<Question> quesList = new ArrayList<Question>();
 

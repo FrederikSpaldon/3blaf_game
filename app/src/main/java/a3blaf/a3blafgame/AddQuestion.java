@@ -15,6 +15,7 @@ public class AddQuestion extends Activity{
     EditText optA ;
     EditText optB ;
     EditText optC ;
+    private static DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +28,21 @@ public class AddQuestion extends Activity{
         optA = (EditText) findViewById(R.id.optA);
         optB = (EditText) findViewById(R.id.optB);
         optC = (EditText) findViewById(R.id.optC);
-
+        databaseHelper=new DatabaseHelper(this);
 
 
         addQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isCorrectInput()) {
-                    /*Intent intent = new Intent(AddQuestion.this,
+                    //add question
+                    databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),optA.getText().toString()));
+
+                    //change activity
+                    Intent intent = new Intent(AddQuestion.this,
                             Menu.class);
                     startActivity(intent);
-                    finish();*/
+                    finish();
                 }
                 else{
                     new AlertDialog.Builder(AddQuestion.this).setTitle("Warning").setMessage("Wrong Input").setCancelable(true).show();
