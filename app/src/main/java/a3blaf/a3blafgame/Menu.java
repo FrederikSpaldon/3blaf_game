@@ -9,10 +9,12 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Menu extends Activity {
 
     Button singlePlayer, multiPlayer, options, newQuestion, sound;
+    ImageButton volumeOn,volumeOff;
     private boolean status = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,9 @@ public class Menu extends Activity {
         multiPlayer = (Button) findViewById(R.id.btn_multiPlayer);
         options = (Button) findViewById(R.id.btn_options);
         newQuestion = (Button) findViewById(R.id.btn_newQuestion);
-        sound = (Button) findViewById(R.id.btn_sound);
+       // sound = (Button) findViewById(R.id.btn_sound);
+        volumeOn=(ImageButton) findViewById(R.id.volumeOn);
+        volumeOff=(ImageButton) findViewById(R.id.volumeOff);
 
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
@@ -77,15 +81,37 @@ public class Menu extends Activity {
             }
         });
 
-        sound.setOnClickListener(new View.OnClickListener() {
+        volumeOn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 if (status) {
                     status = false;
+                    volumeOn.setVisibility(View.GONE);
+                    volumeOff.setVisibility(View.VISIBLE);
                 }
                 else {
                     status = true;
+                    volumeOff.setVisibility(View.GONE);
+                    volumeOn.setVisibility(View.VISIBLE);
+                    mp.start();
+                }
+
+            }
+        });
+        volumeOff.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (status) {
+                    status = false;
+                    volumeOn.setVisibility(View.GONE);
+                    volumeOff.setVisibility(View.VISIBLE);
+                }
+                else {
+                    status = true;
+                    volumeOff.setVisibility(View.GONE);
+                    volumeOn.setVisibility(View.VISIBLE);
                     mp.start();
                 }
 
