@@ -70,7 +70,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/volumeon"
+        android:src="@drawable/volume_on"
         android:layout_weight="1.0"
         android:visibility="visible"/>
     <ImageButton
@@ -80,7 +80,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/volumeoff"
+        android:src="@drawable/volume_off"
         android:layout_weight="1.0"
         android:visibility="gone"/>
 
@@ -93,7 +93,7 @@
         android:visibility="visible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" /> />
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
