@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:id="@+id/optB"
     android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"/>
+    android:layout_centerHorizontal="true"
+    android:hint="@string/optB" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -17,7 +18,8 @@
         android:layout_alignLeft="@+id/optB"
         android:layout_alignStart="@+id/optB"
         android:layout_alignRight="@+id/optB"
-        android:layout_alignEnd="@+id/optB"/>
+        android:layout_alignEnd="@+id/optB"
+        android:hint="@string/optC" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,13 +29,14 @@
         android:layout_alignLeft="@+id/optB"
         android:layout_alignStart="@+id/optB"
         android:layout_alignRight="@+id/optB"
-        android:layout_alignEnd="@+id/optB"/>
+        android:layout_alignEnd="@+id/optB"
+        android:hint="@string/optA" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioButton"
-        android:checked="false"
+        android:id="@+id/checkboxA"
+        android:checked="true"
         android:layout_alignTop="@+id/optA"
         android:layout_toRightOf="@+id/optA"
         android:layout_toEndOf="@+id/optA" />
@@ -41,7 +44,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioButton2"
+        android:id="@+id/checkboxB"
         android:checked="false"
         android:layout_below="@+id/optA"
         android:layout_toRightOf="@+id/optB"
@@ -50,7 +53,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioButton3"
+        android:id="@+id/checkboxC"
         android:checked="false"
         android:layout_below="@+id/optB"
         android:layout_toRightOf="@+id/optC"
@@ -64,18 +67,18 @@
         android:layout_alignLeft="@+id/optA"
         android:layout_alignStart="@+id/optA"
         android:layout_marginTop="31dp"
-        android:layout_toLeftOf="@+id/radioButton"
-        android:layout_toStartOf="@+id/radioButton"
-        android:text="Sem vpis otazku" />
+        android:layout_toLeftOf="@+id/checkboxA"
+        android:layout_toStartOf="@+id/checkboxA"
+        android:hint="@string/questionHint" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pridaj"
+        android:text="@string/addQuestion"
         android:id="@+id/addButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/radioButton3"
-        android:layout_alignEnd="@+id/radioButton3"
+        android:layout_alignRight="@+id/checkboxC"
+        android:layout_alignEnd="@+id/checkboxC"
         android:layout_marginBottom="61dp" />
 
 </RelativeLayout>

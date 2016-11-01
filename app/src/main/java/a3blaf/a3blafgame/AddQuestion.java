@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class AddQuestion extends Activity{
     Button addQuestion ;
@@ -15,6 +16,10 @@ public class AddQuestion extends Activity{
     EditText optA ;
     EditText optB ;
     EditText optC ;
+    RadioButton checkboxA;
+    RadioButton checkboxB;
+    RadioButton checkboxC;
+
     private static DatabaseHelper databaseHelper;
 
     @Override
@@ -28,6 +33,9 @@ public class AddQuestion extends Activity{
         optA = (EditText) findViewById(R.id.optA);
         optB = (EditText) findViewById(R.id.optB);
         optC = (EditText) findViewById(R.id.optC);
+        checkboxA = (RadioButton) findViewById(R.id.checkboxA);
+        checkboxB = (RadioButton) findViewById(R.id.checkboxB);
+        checkboxC = (RadioButton) findViewById(R.id.checkboxC);
         databaseHelper=new DatabaseHelper(this);
 
 
@@ -36,7 +44,7 @@ public class AddQuestion extends Activity{
             public void onClick(View v) {
                 if(isCorrectInput()) {
                     //add question
-                    databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),optA.getText().toString()));
+                    databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),getAnswer()));
 
                     //change activity
                     Intent intent = new Intent(AddQuestion.this,
@@ -50,6 +58,36 @@ public class AddQuestion extends Activity{
             }
         });
 
+        checkboxA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uncheckOther();
+                checkboxA.setChecked(true);
+            }
+        });
+
+        checkboxB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uncheckOther();
+                checkboxB.setChecked(true);
+            }
+        });
+
+        checkboxC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uncheckOther();
+                checkboxC.setChecked(true);
+            }
+        });
+
+    }
+
+    public void uncheckOther(){
+        checkboxA.setChecked(false);
+        checkboxB.setChecked(false);
+        checkboxC.setChecked(false);
     }
 
     public boolean isCorrectInput(){
@@ -57,6 +95,18 @@ public class AddQuestion extends Activity{
             return false;
         }
         return true;
+    }
+
+    public String getAnswer(){
+        if(checkboxA.isChecked()){
+            return optA.getText().toString();
+        }
+        else if(checkboxB.isChecked()){
+            return optB.getText().toString();
+        }
+        else{
+            return optC.getText().toString();
+        }
     }
 
 }
