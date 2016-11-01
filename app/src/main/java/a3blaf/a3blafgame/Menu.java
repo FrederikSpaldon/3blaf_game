@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 public class Menu extends Activity {
 
     Button singlePlayer, multiPlayer, options, newQuestion, sound;
-    ImageButton volumeOn,volumeOff;
+    ImageButton volumeOn,volumeOff,scoreboard;
     private boolean status = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,12 @@ public class Menu extends Activity {
 
         singlePlayer = (Button) findViewById(R.id.bnt_singlePlayer);
         multiPlayer = (Button) findViewById(R.id.btn_multiPlayer);
-        options = (Button) findViewById(R.id.btn_options);
-        newQuestion = (Button) findViewById(R.id.btn_newQuestion);
+      //  options = (Button) findViewById(R.id.btn_options);
+       newQuestion = (Button) findViewById(R.id.btn_newQuestion);
        // sound = (Button) findViewById(R.id.btn_sound);
         volumeOn=(ImageButton) findViewById(R.id.volumeOn);
         volumeOff=(ImageButton) findViewById(R.id.volumeOff);
+        scoreboard=(ImageButton) findViewById(R.id.star);
 
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
@@ -55,7 +56,15 @@ public class Menu extends Activity {
                 finish();*/
             }
         });
-        options.setOnClickListener(new View.OnClickListener() {
+        scoreboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status) {
+                    mp.start();
+                }
+            }
+        });
+        /*options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (status) {
@@ -64,9 +73,9 @@ public class Menu extends Activity {
                 /*Intent intent = new Intent(Menu.this,
                         To Do);
                 startActivity(intent);
-                finish();*/
+                finish();
             }
-        });
+        });*/
 
         newQuestion.setOnClickListener(new View.OnClickListener() {
             @Override

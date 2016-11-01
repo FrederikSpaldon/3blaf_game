@@ -1,93 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0080ff"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/bnt_singlePlayer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="5dp"
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="Singleplayer"
-        android:textColor="#000000"
-        android:textSize="25.0sp" />
+        android:textColor="#FFF"
+        android:textSize="25.0sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
     <Button
         android:id="@+id/btn_multiPlayer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="5dp"
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="Multiplayer"
-        android:textColor="#000000"
-        android:textSize="25.0sp" />
-    <Button
-        android:id="@+id/btn_options"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/buttonshape"
-        android:gravity="center"
-        android:text="Options"
-        android:textColor="#000000"
-        android:textSize="25.0sp" />
+        android:textColor="#FFF"
+        android:textSize="25.0sp"
+        android:layout_below="@+id/bnt_singlePlayer"
+        android:layout_alignLeft="@+id/bnt_singlePlayer"
+        android:layout_alignStart="@+id/bnt_singlePlayer"
+        android:layout_alignRight="@+id/bnt_singlePlayer"
+        android:layout_alignEnd="@+id/bnt_singlePlayer" />
     <Button
         android:id="@+id/btn_newQuestion"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="5dp"
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="Add question"
-        android:textColor="#000000"
-        android:textSize="25.0sp" />
+        android:textColor="#FFF"
+        android:textSize="25.0sp"
+        android:layout_below="@+id/btn_multiPlayer"
+        android:layout_alignLeft="@+id/btn_multiPlayer"
+        android:layout_alignStart="@+id/btn_multiPlayer"
+        android:layout_alignRight="@+id/btn_multiPlayer"
+        android:layout_alignEnd="@+id/btn_multiPlayer" />
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/volumeOn"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/volumeon"
-            android:layout_weight="1.0"
-            android:visibility="visible"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/volumeOff"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/volumeoff"
-            android:layout_weight="1.0"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volumeOn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/volumeon"
+        android:layout_weight="1.0"
+        android:visibility="visible"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volumeOff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/volumeoff"
+        android:layout_weight="1.0"
+        android:visibility="gone"/>
 
-            android:visibility="gone"/>
-    </RelativeLayout>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/star"
+        android:src="@drawable/star"
+        android:layout_weight="1.0"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" /> />
 
-</LinearLayout>
+
+</RelativeLayout>
