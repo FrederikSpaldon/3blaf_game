@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void addQuestions() {
-        Question q1 = new Question("Testovacia otazka 1?", "A", "B", "C", "A");
+        /*Question q1 = new Question("Testovacia otazka 1?", "A", "B", "C", "A");
         this.addQuestion(q1);
         Question q2 = new Question("Testovacia otazka 2?", "A", "B", "C", "A");
         this.addQuestion(q2);
@@ -56,6 +56,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Question q5 = new Question("Testovacia otazka 5?", "A", "B", "C", "A");
         this.addQuestion(q5);
         Question q6 = new Question("Testovacia otazka 6?", "A", "B", "C", "A");
+        this.addQuestion(q6);*/
+
+        Question q1 = new Question("Koľko bitov má jeden bajt?", "8", "7", "9", "8");
+        this.addQuestion(q1);
+        Question q2 = new Question("Ktorý algoritmus na triedenie je najrýchlejší?", "Bubble sort", "Quick sort", "Merge sort", "Quick sort");
+        this.addQuestion(q2);
+        Question q3 = new Question("Kde vznikol internet?", "CERN", "MIT", "Oxford", "CERN");
+        this.addQuestion(q3);
+        Question q4 = new Question("V ktorom roku vznikol jazyk C?", "1973", "1980", "1972", "1972");
+        this.addQuestion(q4);
+        Question q5 = new Question("Vykonaj operáciu or: 0011 or 1111", "0101", "1111", "0000", "1111");
+        this.addQuestion(q5);
+        Question q6 = new Question("Kto bol prvý programátor?", "Charles Babbage", "Alan Turing", "Ada Lovelace", "Ada Lovelace");
         this.addQuestion(q6);
 
         // END

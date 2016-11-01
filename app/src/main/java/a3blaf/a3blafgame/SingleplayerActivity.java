@@ -22,7 +22,7 @@ public class SingleplayerActivity extends Activity {
     List<Question> quesList;
     int score = 0;
     int qid = 0;
-
+    int n = 0;
 
     Question currentQ;
     TextView txtQuestion, times, scored;
@@ -93,11 +93,13 @@ public class SingleplayerActivity extends Activity {
     }
 
     public void getAnswer(String AnswerString) {
+
         if (currentQ.getANSWER().equals(AnswerString)) {
 
             // if conditions matches increase the int (score) by 1
             // and set the text of the score view
             score++;
+            n++;
             scored.setText("Score : " + score);
         } else {
 
@@ -105,9 +107,11 @@ public class SingleplayerActivity extends Activity {
             Intent intent = new Intent(SingleplayerActivity.this,
                     FinalActivity.class);
 
+            n++;
             // passing the int value
             Bundle b = new Bundle();
             b.putInt("score", score); // Your score
+            b.putInt("n", n);
             intent.putExtras(b); // Put your score to your next
             startActivity(intent);
             finish();
@@ -123,7 +127,9 @@ public class SingleplayerActivity extends Activity {
             Intent intent = new Intent(SingleplayerActivity.this,
                     FinalActivity.class);
             Bundle b = new Bundle();
+            Bundle c = new Bundle();
             b.putInt("score", score); // Your score
+            b.putInt("n", n);
             intent.putExtras(b); // Put your score to your next
             startActivity(intent);
             finish();

@@ -20,8 +20,9 @@ public class FinalActivity extends Activity {
         Bundle b = getIntent().getExtras();
 
         int score = b.getInt("score");
+        int pocetOtazok = b.getInt("n");
 
-        textResult.setText("The End. Your score is " + " " + score + ". \n Thanks for playing my game.");
+        textResult.setText("Koniec hry\nVáš stav je " + " " + score + " z " + pocetOtazok + ". \nVďaka za hru.");
 
     }
 
