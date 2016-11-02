@@ -19,6 +19,7 @@ public class AddQuestion extends Activity{
     RadioButton checkboxA;
     RadioButton checkboxB;
     RadioButton checkboxC;
+    String category;
 
     private static DatabaseHelper databaseHelper;
 
@@ -36,6 +37,7 @@ public class AddQuestion extends Activity{
         checkboxA = (RadioButton) findViewById(R.id.checkboxA);
         checkboxB = (RadioButton) findViewById(R.id.checkboxB);
         checkboxC = (RadioButton) findViewById(R.id.checkboxC);
+        category = "Vlastne";
         databaseHelper=new DatabaseHelper(this);
 
 
@@ -44,7 +46,7 @@ public class AddQuestion extends Activity{
             public void onClick(View v) {
                 if(isCorrectInput()) {
                     //add question
-                    databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),getAnswer()));
+                    databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),getAnswer(),category));
 
                     //change activity
                     Intent intent = new Intent(AddQuestion.this,
@@ -53,7 +55,7 @@ public class AddQuestion extends Activity{
                     finish();
                 }
                 else{
-                    new AlertDialog.Builder(AddQuestion.this).setTitle("Warning").setMessage("Wrong Input").setCancelable(true).show();
+                    new AlertDialog.Builder(AddQuestion.this).setTitle("Upozornenie").setMessage("Vyplňte všetky polia").setCancelable(true).show();
                 }
             }
         });

@@ -27,6 +27,7 @@ public class SingleplayerActivity extends Activity {
     Question currentQ;
     TextView txtQuestion, times, scored;
     Button option1, option2, option3;
+    String category;
 
 
     @Override
@@ -34,62 +35,75 @@ public class SingleplayerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle b = getIntent().getExtras();
+        category = b.getString("category");
+
         DatabaseHelper db = new DatabaseHelper(this);  // database helper
-        quesList = db.getAllQuestions();  // get all question
-        currentQ = quesList.get(qid); //  current question
+        quesList = db.getAllQuestionsByCategory(category);  // get all question
 
-        txtQuestion = (TextView) findViewById(R.id.txtQuestion); // question text view
+        //if empty category go back
+        if(quesList==null || quesList.isEmpty()) {
+            Intent intent = new Intent(SingleplayerActivity.this, CategoryChoose.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
 
-        // option buttons
-        option1 = (Button) findViewById(R.id.button1);
-        option2 = (Button) findViewById(R.id.button2);
-        option3 = (Button) findViewById(R.id.button3);
+            currentQ = quesList.get(qid); //  current question
 
+            txtQuestion = (TextView) findViewById(R.id.txtQuestion); // question text view
 
-
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
-
-
-        // the textview in which score will be displayed
-        scored = (TextView) findViewById(R.id.score);
-
-        // the timer
-        times = (TextView) findViewById(R.id.timers);
+            // option buttons
+            option1 = (Button) findViewById(R.id.button1);
+            option2 = (Button) findViewById(R.id.button2);
+            option3 = (Button) findViewById(R.id.button3);
 
 
-        // method which will set the things up for our game
-        setQuestionView();
-        times.setText("00:02:00");
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
-        // A timer of 60 seconds to play for, with an interval of 1 second (1000 milliseconds)
-        CounterClass timer = new CounterClass(60000, 1000);
-        timer.start();
 
-        // button click listeners
-        option1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // passing the button text to check whether the anser is correct or not
-                getAnswer(option1.getText().toString());
-                mp.start();
-            }
-        });
+            // the textview in which score will be displayed
+            scored = (TextView) findViewById(R.id.score);
 
-        option2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getAnswer(option2.getText().toString());
-                mp.start();
-            }
-        });
+            // the timer
+            times = (TextView) findViewById(R.id.timers);
 
-        option3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getAnswer(option3.getText().toString());
-                mp.start();
-            }
-        });
+
+            // method which will set the things up for our game
+            setQuestionView();
+            times.setText("00:02:00");
+
+            // A timer of 60 seconds to play for, with an interval of 1 second (1000 milliseconds)
+            CounterClass timer = new CounterClass(60000, 1000);
+            timer.start();
+
+            // button click listeners
+            option1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // passing the button text to check whether the anser is correct or not
+                    getAnswer(option1.getText().toString());
+                    mp.start();
+                }
+            });
+
+            option2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getAnswer(option2.getText().toString());
+                    mp.start();
+                }
+            });
+
+            option3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getAnswer(option3.getText().toString());
+                    mp.start();
+                }
+            });
+
+        }
     }
 
     public void getAnswer(String AnswerString) {
@@ -171,8 +185,6 @@ public class SingleplayerActivity extends Activity {
             System.out.println(hms);
             times.setText(hms);
         }
-
-
     }
 
     private void setQuestionView() {
@@ -185,4 +197,5 @@ public class SingleplayerActivity extends Activity {
 
         qid++;
     }
+
 }

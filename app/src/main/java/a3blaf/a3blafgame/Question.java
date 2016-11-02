@@ -13,6 +13,7 @@ public class Question extends Activity{
     private String OPTC;
 
     private String ANSWER;
+    private String CATEGORY;
 
 
     public Question() {
@@ -23,15 +24,17 @@ public class Question extends Activity{
         OPTC = "";
 
         ANSWER = "";
+        CATEGORY= "";
 
     }
 
-    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String aNSWER) {
+    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String aNSWER, String cATEGORY) {
         QUESTION = qUESTION;
         OPTA = oPTA;
         OPTB = oPTB;
         OPTC = oPTC;
         ANSWER = aNSWER;
+        CATEGORY = cATEGORY;
 
     }
 
@@ -59,6 +62,10 @@ public class Question extends Activity{
         return ANSWER;
     }
 
+    public String getCATEGORY() {
+        return CATEGORY;
+    }
+
     public void setID(int id) {
         ID = id;
     }
@@ -81,6 +88,10 @@ public class Question extends Activity{
 
     public void setANSWER(String aNSWER) {
         ANSWER = aNSWER;
+    }
+
+    public void setCATEGORY(String cATEGORY) {
+        CATEGORY = cATEGORY;
     }
 
 }
