@@ -37,7 +37,7 @@ public class Menu extends Activity {
             public void onClick(View v) {
                 mp.start();
                 Intent intent = new Intent(Menu.this,
-                        SingleplayerActivity.class);
+                        CategoryChoose.class);
                 startActivity(intent);
                 finish();
             }
