@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,12 +8,67 @@
         android:layout_height="wrap_content"
         android:text="Informatika"
         android:id="@+id/btn_informatika"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matematika"
+        android:id="@+id/btn_matematika"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/btn_informatika"
+        android:layout_alignLeft="@+id/btn_informatika"
+        android:layout_alignStart="@+id/btn_informatika"
+        android:layout_alignRight="@+id/btn_informatika"
+        android:layout_alignEnd="@+id/btn_informatika" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dejepis"
+        android:id="@+id/btn_dejepis"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/btn_matematika"
+        android:layout_alignLeft="@+id/btn_matematika"
+        android:layout_alignStart="@+id/btn_matematika"
+        android:layout_alignRight="@+id/btn_matematika"
+        android:layout_alignEnd="@+id/btn_matematika" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vedeli ste že?"
+        android:id="@+id/btn_vedeli"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/btn_dejepis"
+        android:layout_alignLeft="@+id/btn_dejepis"
+        android:layout_alignStart="@+id/btn_dejepis"
+        android:layout_alignRight="@+id/btn_dejepis"
+        android:layout_alignEnd="@+id/btn_dejepis" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vlastné"
         android:id="@+id/btn_vlastne"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/btn_vedeli"
+        android:layout_alignLeft="@+id/btn_vedeli"
+        android:layout_alignStart="@+id/btn_vedeli"
+        android:layout_alignRight="@+id/btn_vedeli"
+        android:layout_alignEnd="@+id/btn_vedeli" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Kategórie"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+</RelativeLayout>
