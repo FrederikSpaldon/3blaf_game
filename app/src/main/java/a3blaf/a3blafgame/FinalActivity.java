@@ -1,7 +1,9 @@
 package a3blaf.a3blafgame;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -21,7 +23,8 @@ public class FinalActivity extends Activity {
 
         int score = b.getInt("score");
         int pocetOtazok = b.getInt("n");
-
+        SharedPreferences prefs= this.getSharedPreferences("skore", Context.MODE_PRIVATE);
+        prefs.edit().putInt("skore",score).apply();
         textResult.setText("Koniec hry\nVáš stav je " + " " + score + " z " + pocetOtazok + ". \nVďaka za hru.");
 
     }

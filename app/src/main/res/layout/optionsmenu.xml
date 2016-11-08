@@ -62,7 +62,7 @@
         android:layout_alignEnd="@+id/btn_multiPlayer" />
 
 
-    <ImageButton
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/volumeOn"
@@ -72,7 +72,7 @@
         android:src="@drawable/volume_on"
         android:layout_weight="1.0"
         android:visibility="visible"/>
-    <ImageButton
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/volumeOff"
@@ -83,15 +83,14 @@
         android:layout_weight="1.0"
         android:visibility="gone"/>
 
-    <ImageButton
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/star"
-        android:src="@drawable/star"
-        android:layout_weight="1.0"
-        android:visibility="visible"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-    
+
+
 </RelativeLayout>

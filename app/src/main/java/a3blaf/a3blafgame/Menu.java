@@ -5,17 +5,22 @@ package a3blaf.a3blafgame;
  */
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Menu extends Activity {
 
     Button singlePlayer, multiPlayer, options, newQuestion, sound;
-    ImageButton volumeOn,volumeOff,scoreboard;
+    ImageView volumeOn,volumeOff;
+    TextView sk;
     private boolean status = true;
+    int skore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +31,14 @@ public class Menu extends Activity {
       //  options = (Button) findViewById(R.id.btn_options);
        newQuestion = (Button) findViewById(R.id.btn_newQuestion);
        // sound = (Button) findViewById(R.id.btn_sound);
-        volumeOn=(ImageButton) findViewById(R.id.volumeOn);
-        volumeOff=(ImageButton) findViewById(R.id.volumeOff);
-        scoreboard=(ImageButton) findViewById(R.id.star);
-
+        volumeOn=(ImageView) findViewById(R.id.volumeOn);
+        volumeOff=(ImageView) findViewById(R.id.volumeOff);
+       // scoreboard=(ImageButton) findViewById(R.id.star);
+        sk=(TextView) findViewById(R.id.textView);
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
-
+        SharedPreferences prefs = getSharedPreferences("skore",MODE_PRIVATE);
+        skore=prefs.getInt("skore",0);
+        sk.setText("Vaše dosiahnuté skóre je: "+Integer.toString(skore));
         singlePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,14 +63,7 @@ public class Menu extends Activity {
                 finish();*/
             }
         });
-        scoreboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (status) {
-                    mp.start();
-                }
-            }
-        });
+
         /*options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
