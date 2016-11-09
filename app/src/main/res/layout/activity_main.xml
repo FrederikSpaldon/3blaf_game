@@ -4,7 +4,7 @@
     android:id="@+id/relatively"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dark_blue"
+    android:background="#f5a"
     android:orientation="vertical"
     android:weightSum="1" >
     <LinearLayout
@@ -35,7 +35,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Score : 1"
+                    android:text="Otázka : 1"
                     android:textColor="#ffffff"
                     android:textSize="25.0sp"
                     android:textStyle="bold" />
@@ -73,7 +73,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Question"
+                    android:text="Otázka"
                     android:textColor="#ffffff"
                     android:textSize="35.0sp"
                     android:textStyle="bold" />
