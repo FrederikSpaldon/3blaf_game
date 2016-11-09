@@ -3,6 +3,7 @@ package a3blaf.a3blafgame;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,12 +21,17 @@ public class AddQuestion extends Activity{
     RadioButton checkboxB;
     RadioButton checkboxC;
     String category;
+    Boolean status;
 
     private static DatabaseHelper databaseHelper;
+
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle b = getIntent().getExtras();
 
         setContentView(R.layout.add_question);
 
@@ -45,6 +51,11 @@ public class AddQuestion extends Activity{
             @Override
             public void onClick(View v) {
                 if(isCorrectInput()) {
+                    Bundle b = getIntent().getExtras();
+                    status = b.getBoolean("Zvuk");
+                    if(status) {
+                        mp.start();
+                    }
                     //add question
                     databaseHelper.addOwnQuestion(new Question(question.getText().toString(),optA.getText().toString(),optB.getText().toString(),optC.getText().toString(),getAnswer(),category));
 

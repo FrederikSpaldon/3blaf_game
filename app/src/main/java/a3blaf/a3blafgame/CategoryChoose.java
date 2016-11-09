@@ -13,6 +13,7 @@ import android.widget.Button;
 public class CategoryChoose extends Activity {
 
     Button informatika,vlastne;
+    Boolean status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,8 @@ public class CategoryChoose extends Activity {
         informatika = (Button)findViewById(R.id.btn_informatika);
         vlastne = (Button)findViewById(R.id.btn_vlastne);
 
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
+
         informatika.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +33,11 @@ public class CategoryChoose extends Activity {
                 Intent intent = new Intent(CategoryChoose.this,
                         SingleplayerActivity.class);
                 intent.putExtras(b);
+                b = getIntent().getExtras();
+                status = b.getBoolean("Zvuk");
+                if(status) {
+                    mp.start();
+                }
                 startActivity(intent);
                 finish();
             }
@@ -43,6 +51,11 @@ public class CategoryChoose extends Activity {
                 Intent intent = new Intent(CategoryChoose.this,
                         SingleplayerActivity.class);
                 intent.putExtras(b);
+                b = getIntent().getExtras();
+                status = b.getBoolean("Zvuk");
+                if(status) {
+                    mp.start();
+                }
                 startActivity(intent);
                 finish();
             }

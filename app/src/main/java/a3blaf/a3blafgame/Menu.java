@@ -21,6 +21,7 @@ public class Menu extends Activity {
     TextView sk;
     private boolean status = true;
     int skore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class Menu extends Activity {
                 mp.start();
                 Intent intent = new Intent(Menu.this,
                         CategoryChoose.class);
+                intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();
             }
@@ -59,6 +61,7 @@ public class Menu extends Activity {
 
                 /*Intent intent = new Intent(Menu.this,
                         MultiplayerActivity.class);
+                intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();*/
             }
@@ -72,6 +75,7 @@ public class Menu extends Activity {
                 }
                 /*Intent intent = new Intent(Menu.this,
                         To Do);
+                intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();
             }
@@ -85,6 +89,7 @@ public class Menu extends Activity {
                 }
                 Intent intent = new Intent(Menu.this,
                         AddQuestion.class);
+                intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();
             }

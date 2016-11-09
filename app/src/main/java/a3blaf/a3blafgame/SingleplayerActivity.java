@@ -28,6 +28,7 @@ public class SingleplayerActivity extends Activity {
     TextView txtQuestion, times, scored;
     Button option1, option2, option3;
     String category;
+    Boolean status;
 
 
     @Override
@@ -81,6 +82,11 @@ public class SingleplayerActivity extends Activity {
             option1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Bundle b = getIntent().getExtras();
+                    status = b.getBoolean("Zvuk");
+                    if(status) {
+                        mp.start();
+                    }
                     // passing the button text to check whether the anser is correct or not
                     getAnswer(option1.getText().toString());
                     mp.start();
@@ -90,6 +96,11 @@ public class SingleplayerActivity extends Activity {
             option2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Bundle b = getIntent().getExtras();
+                    status = b.getBoolean("Zvuk");
+                    if(status) {
+                        mp.start();
+                    }
                     getAnswer(option2.getText().toString());
                     mp.start();
                 }
@@ -98,6 +109,11 @@ public class SingleplayerActivity extends Activity {
             option3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Bundle b = getIntent().getExtras();
+                    status = b.getBoolean("Zvuk");
+                    if(status) {
+                        mp.start();
+                    }
                     getAnswer(option3.getText().toString());
                     mp.start();
                 }
