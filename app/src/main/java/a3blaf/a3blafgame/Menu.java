@@ -43,7 +43,9 @@ public class Menu extends Activity {
         singlePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.start();
+                if(status) {
+                    mp.start();
+                }
                 Intent intent = new Intent(Menu.this,
                         CategoryChoose.class);
                 intent.putExtra("Zvuk", status);
@@ -87,8 +89,7 @@ public class Menu extends Activity {
                 if (status) {
                     mp.start();
                 }
-                Intent intent = new Intent(Menu.this,
-                        AddQuestion.class);
+                Intent intent = new Intent(Menu.this, AddQuestion.class);
                 intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();
@@ -132,6 +133,10 @@ public class Menu extends Activity {
             }
         });
 
+
+    }
+    @Override
+    public void onBackPressed() {
 
     }
 

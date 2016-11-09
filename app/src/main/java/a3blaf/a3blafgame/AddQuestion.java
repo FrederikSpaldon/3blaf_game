@@ -25,11 +25,11 @@ public class AddQuestion extends Activity{
 
     private static DatabaseHelper databaseHelper;
 
-    final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
         Bundle b = getIntent().getExtras();
 
@@ -121,5 +121,11 @@ public class AddQuestion extends Activity{
             return optC.getText().toString();
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        Bundle b = new Bundle();
+        Intent intent = new Intent(AddQuestion.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 }
