@@ -37,4 +37,11 @@ public class FinalActivity extends Activity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        Bundle b = new Bundle();
+        Intent intent = new Intent(FinalActivity.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 }

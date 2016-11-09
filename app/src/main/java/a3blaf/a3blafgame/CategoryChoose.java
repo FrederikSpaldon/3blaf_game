@@ -62,4 +62,11 @@ public class CategoryChoose extends Activity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Bundle b = new Bundle();
+        Intent intent = new Intent(CategoryChoose.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">3blaf game</string>
     <string name="action_settings">Settings</string>
-    <string name="questionHint">Sem vpíš otázku</string>
+    <string name="questionHint">Sem napíš otázku</string>
     <string name="addQuestion">Pridaj</string>
     <string name="optA">Možnosť A</string>
     <string name="optB">Možnosť B</string>

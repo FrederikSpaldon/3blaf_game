@@ -213,5 +213,12 @@ public class SingleplayerActivity extends Activity {
 
         qid++;
     }
+    @Override
+    public void onBackPressed() {
+        Bundle b = new Bundle();
+        Intent intent = new Intent(SingleplayerActivity.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 
 }
