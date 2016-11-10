@@ -146,7 +146,7 @@ public class SingleplayerActivity extends Activity {
             startActivity(intent);
             finish();
         }
-        if (qid < 5) {
+        if (qid < 5 && qid < quesList.size()) {
 
             // if questions are not over then do this
             currentQ = quesList.get(qid);
