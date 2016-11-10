@@ -146,6 +146,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         dbase.insert(TABLE_QUEST, null, values);
     }
 
+    public void removeQuestion(int questionId) {
+        dbase = this.getWritableDatabase();
+        dbase.delete(TABLE_QUEST,KEY_ID+" = "+String.valueOf(questionId),null);
+    }
+
     public List<Question> getAllQuestions() {
         List<Question> quesList = new ArrayList<Question>();
 

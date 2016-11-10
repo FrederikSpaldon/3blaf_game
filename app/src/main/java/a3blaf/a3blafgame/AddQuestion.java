@@ -9,7 +9,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+
+import java.util.List;
 
 public class AddQuestion extends Activity{
     Button addQuestion ;
@@ -22,6 +26,8 @@ public class AddQuestion extends Activity{
     RadioButton checkboxC;
     String category;
     Boolean status;
+
+    List<Question> allQuestions;
 
     private static DatabaseHelper databaseHelper;
 
@@ -45,6 +51,8 @@ public class AddQuestion extends Activity{
         checkboxC = (RadioButton) findViewById(R.id.checkboxC);
         category = "Vlastne";
         databaseHelper=new DatabaseHelper(this);
+
+        displayAllQuestions();
 
 
         addQuestion.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +129,29 @@ public class AddQuestion extends Activity{
             return optC.getText().toString();
         }
     }
+
+    private void displayAllQuestions(){
+        allQuestions = databaseHelper.getAllQuestionsByCategory("Vlastne");
+
+        for (final Question question : allQuestions) {
+            Button btn = new Button(this);
+            btn.setText(question.getQUESTION());
+
+            LinearLayout ll = (LinearLayout) findViewById(R.id.layout_removeQuestion);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    databaseHelper.removeQuestion(question.getID());
+                    finish();
+                    startActivity(getIntent());
+                }
+            });
+
+            ll.addView(btn, lp);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         Bundle b = new Bundle();
