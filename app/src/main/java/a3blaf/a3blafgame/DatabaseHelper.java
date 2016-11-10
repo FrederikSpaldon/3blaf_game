@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void addQuestions() {
 
-
+        //INFORMATIKA
         Question q1 = new Question("Koľko bitov má jeden bajt?", "8", "7", "9", "8","Informatika");
         this.addQuestion(q1);
         Question q2 = new Question("Ktorý algoritmus na triedenie je najrýchlejší?", "Bubble sort", "Quick sort", "Merge sort", "Quick sort", "Informatika");
@@ -60,8 +60,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.addQuestion(q5);
         Question q6 = new Question("Kto bol prvý programátor?", "Charles Babbage", "Alan Turing", "Ada Lovelace", "Ada Lovelace", "Informatika");
         this.addQuestion(q6);
-
-        // END
+        Question q7 = new Question("Ktorý tag slúži ako link?","<a></a>","<h1></h1>","<p></p>","<a></a>","Informatika");
+        this.addQuestion(q7);
+        Question q8 = new Question("Akú hodnotu bude mať premenná i po vykonaní príkazu int i = 3/6", "0,5", "0", "1", "0","Informatika");
+        this.addQuestion(q8);
+        Question q9 = new Question("Aká je adresa broadcastu pre sieť, v ktorej je počítač s IP adresou 192.168.1.1/27?", "192.168.1.31", "192.168.1.63", "192.168.1.32", "192.168.1.31","Informatika");
+        this.addQuestion(q9);
+        Question q10 = new Question ("Aké typy súborov majú príponu .avi?", "dokumenty", "videá", "pesničky", "videá","Informatika");
+        this.addQuestion(q10);
+        //MATEMATIKA
+        Question q11 = new Question("Pravdepodobnosť, že odpoviem správne na túto otázku tipovaním:", "1/4", "1/2", "1/3", "1/3","Matematika");
+        this.addQuestion(q11);
+        Question q12 = new Question("Derivácia výrazu 5x + 5 podľa premennej x:", "5", "5x", "x", "5","Matematika");
+        this.addQuestion(q12);
+        Question q13 = new Question("Mobil stál 1000€ a zdražel o 10%. Jeho nová cena je:", "1010", "1100", "10000", "1100","Matematika");
+        this.addQuestion(q13);
+        Question q14 = new Question("Písmenom N sa označuje množina:", "celých čísiel", "prirodzených čísiel", "kladných čísiel", "prirodzených čísiel","Matematika");
+        this.addQuestion(q14);
+        Question q15 = new Question("Derivácia výrazu sinx podľa premennej x:", "- sinx", "- cosx", " cosx", " cosx","Matematika");
+        this.addQuestion(q15);
+        Question q16 = new Question("Rímske číslo LXVIII je:", "118", "58", "68", "68","Matematika");
+        this.addQuestion(q16);
+        Question q17 = new Question("Čo vyplýva z týchto výrokov: Ak sneží, kino je zavreté. Kino je otvorené?", "nesneží", "nič nevyplýva", "sneží", "nesneží","Matematika");
+        this.addQuestion(q17);
+        Question q18 = new Question("Aký je modus z množiny čísiel {1, 1, 6, 7, 8}?", "5", "1", "4", "1","Matematika");
+        this.addQuestion(q18);
+        Question q19 = new Question("Ak platia výroky p=>r, q=>r tak platí aj:", " p => q", " r => q", "ani jedna možnosť", "ani jedna možnosť","Matematika");
+        this.addQuestion(q19);
+        Question q20 = new Question("Negácia výroku: Aspoň jeden z nás vyhral:", "všetci sme vyhrali", "nikto z nás nevyhral", "niekto z nás nevyhral", "nikto z nás nevyhral","Matematika");
+        this.addQuestion(q20);
+        //DEJEPIS
+        Question q21 = new Question("Kedy bola dobitá Bastila?", "1689", "1789", "1714", "1789", "Dejepis");
+        this.addQuestion(q21);
+        Question q22 = new Question("Kedy sa začala druhá svetová vojna?", "1939", "1938", "1937", "1939", "Dejepis");
+        this.addQuestion(q22);
+        Question q23 = new Question("Prvý prezident USA bol: ", "George Washington", "John Adams", "Thomas Jefferson", "George Washington","Dejepis");
+        this.addQuestion(q23);
+        Question q24 = new Question("Prvý slovenský prezident ", "Michal Kováč", "Jozef Tiso", "Róber Fico", "Jozef Tiso","Dejepis");
+        this.addQuestion(q24);
+        Question q25 = new Question("Ako sa volala prvá atómová bomba, ktorá bola zhodená na japonské mesto Hirošima", "Big Teddy", "Little Boy", "Fat Man", "Little Boy","Dejepis");
+        this.addQuestion(q25);
+        Question q26 = new Question("V ktorom roku nastal výbuch v ukrajinskej elektrárni ?", "26.04.1986", "04.04.1976", "24.09.1990", "26.04.1986","Dejepis");
+        this.addQuestion(q26);
+        Question q27 = new Question("Kto sa nezúčasnil pri podpisovaní Mníchovskej dohody?", "Adolf Hilter", "Winston Churchill", "Jozef Tiso", "Jozef TIso", "Dejepis");
+        this.addQuestion(q27);
+        Question q28 = new Question("Ako sa volal prvý počítač ", "Apple 2", "MsDOS", "ENIAC", "ENIAC","Dejepis");
+        this.addQuestion(q28);
+        Question q29 = new Question("Kto sa považuje za historicky prvého programátora ? ", "Steve Wozniak ", "Bill Gates", "Augusta Ada Byronová Kingová, grófka Lovelace", "Augusta Ada Byronová Kingová, grófka Lovelace","Dejepis");
+        this.addQuestion(q29);
+        Question q30 = new Question("Kto sa považuje za vynálezca telefónu?", "Nikola Tesla", " Alexander Graham Bell", "Philo Taylor Farnsworth", "Alexander Graham Bell","Dejepis");
+        this.addQuestion(q30);// END
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.DialogInterface;
 
 /**
  * Created by Fredo on 16. 10. 2016.
@@ -29,6 +31,7 @@ public class SingleplayerActivity extends Activity {
     Button option1, option2, option3;
     String category;
     Boolean status;
+    Boolean popUp;
 
 
     @Override
@@ -213,12 +216,58 @@ public class SingleplayerActivity extends Activity {
 
         qid++;
     }
+
+    private void PopUp() {
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Koniec");
+        helpBuilder.setMessage("Chcete ukončiť hru ? Jožo povedal, že je to dobrá hra");
+        helpBuilder.setPositiveButton("Ano",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        popUp = true;
+                    }
+                });
+        helpBuilder.setPositiveButton("Nie",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        popUp = false;
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
+    }
+
     @Override
     public void onBackPressed() {
-        Bundle b = new Bundle();
-        Intent intent = new Intent(SingleplayerActivity.this, Menu.class);
-        startActivity(intent);
-        finish();
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Koniec");
+        helpBuilder.setMessage("Chcete ukončiť hru?");
+        helpBuilder.setPositiveButton("Ano",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle b = new Bundle();
+                        final Intent intent = new Intent(SingleplayerActivity.this, Menu.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+        helpBuilder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
 
 }
