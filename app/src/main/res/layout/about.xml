@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="O hre"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Aplikácia má charakter kvízovej hry, a vaším cieľom je získať čo najväčšie skóre. V hre sú na výber otázky z rôznych oblastí, aby otázky oslovili čo najväčšiu skupinu užívateľov. Hra ponúka možnosť hrania v dvoch módoch - a to singleplayer a multiplayer. Hra umožňuje taktiež pridanie si vlastnej kategórie a teda aj svojich otázok."
+        android:textAlignment="center"
+        android:id="@+id/textView4"
+        android:textColor="#000"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
