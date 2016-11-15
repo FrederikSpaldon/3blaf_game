@@ -4,7 +4,7 @@
     android:id="@+id/relatively"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5a"
+    android:background="@drawable/pozadie2"
     android:orientation="vertical"
     android:weightSum="1" >
     <LinearLayout
@@ -92,10 +92,10 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="80dp"
                     android:layout_marginTop="5dp"
-                    android:background="#fff"
                     android:gravity="center"
                     android:text="A"
-                    android:textColor="#000000"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="#FFF"
                     android:textSize="25.0sp" />
                 <Button
                     android:id="@+id/button2"
@@ -105,10 +105,10 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="80dp"
                     android:layout_marginTop="5dp"
-                    android:background="#fff"
                     android:gravity="center"
                     android:text="B"
-                    android:textColor="#000000"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="#FFF"
                     android:textSize="25.0sp" />
                 <Button
                     android:id="@+id/button3"
@@ -118,10 +118,10 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="80dp"
                     android:layout_marginTop="5dp"
-                    android:background="#fff"
                     android:gravity="center"
                     android:text="C"
-                    android:textColor="#000000"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="#FFF"
                     android:textSize="25.0sp" />
             </LinearLayout>
         </LinearLayout>
