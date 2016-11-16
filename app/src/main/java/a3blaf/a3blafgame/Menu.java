@@ -170,7 +170,7 @@ public class Menu extends Activity {
     }
     @Override
     public void onBackPressed() {
-
+        finish();
     }
 
 }
