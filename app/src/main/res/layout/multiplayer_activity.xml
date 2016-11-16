@@ -1,0 +1,149 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:rotation="180"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="A"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_above="@+id/button2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+
+            />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="B"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_above="@+id/button3"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_alignStart="@+id/button1"
+            android:layout_alignRight="@+id/button1"
+            android:layout_alignEnd="@+id/button1" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="C"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_above="@+id/txtQuestion"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2"
+            android:layout_alignRight="@+id/button2"
+            android:layout_alignEnd="@+id/button2" />
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+
+            android:text="Otázka"
+            android:textColor="#000"
+            android:textSize="35.0sp"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
+
+
+        <Button
+            android:id="@+id/m_buttonA2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="A"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_above="@+id/m_buttonB2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <Button
+            android:id="@+id/m_buttonB2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="B"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_above="@+id/m_buttonC2"
+            android:layout_alignLeft="@+id/m_buttonA2"
+            android:layout_alignStart="@+id/m_buttonA2"
+            android:layout_alignRight="@+id/m_buttonA2"
+            android:layout_alignEnd="@+id/m_buttonA2" />
+        <Button
+            android:id="@+id/m_buttonC2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="C"
+            android:background="@drawable/buttonshape"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/m_buttonB2"
+            android:layout_alignStart="@+id/m_buttonB2"
+            android:layout_alignRight="@+id/m_buttonB2"
+            android:layout_alignEnd="@+id/m_buttonB2" />
+        <TextView
+            android:id="@+id/txtQuestion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Otázka"
+            android:textColor="#ffffff"
+            android:textSize="35.0sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"/>
+
+
+    </RelativeLayout>
+</LinearLayout>
