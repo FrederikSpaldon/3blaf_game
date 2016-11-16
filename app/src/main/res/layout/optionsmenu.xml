@@ -26,10 +26,7 @@
         android:textColor="#FFF"
         android:textSize="25.0sp"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView" />
+        />
 
     <Button
         android:id="@+id/btn_multiPlayer"

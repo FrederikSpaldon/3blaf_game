@@ -4,6 +4,7 @@ package a3blaf.a3blafgame;
  * Created by Fredo on 16. 10. 2016.
  */
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -28,8 +29,6 @@ public class Menu extends Activity {
     TextView sk;
     private boolean status = true;
     int skore;
-    PopupWindow popUpWindow;
-    LayoutInflater layoutInflater;
     RelativeLayout relative;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,21 +145,8 @@ public class Menu extends Activity {
 
             @Override
             public void onClick(View v) {
-                layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.about,null);
-                // popUpWindow.showAtLocation(, Gravity.BOTTOM, 10, 10);
-                popUpWindow = new PopupWindow(container,800,1300,true);
-                popUpWindow.showAtLocation(relative, Gravity.NO_GRAVITY,150 , 400);
 
-                container.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View view, MotionEvent motionEvent) {
-                        popUpWindow.dismiss();
-                        return true;
-                    }
-                });
-
-
+                new AlertDialog.Builder(Menu.this).setTitle("O hre").setMessage(getApplicationContext().getResources().getString(R.string.ohre)).setCancelable(true).show();
             }
 
 
