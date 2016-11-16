@@ -7,13 +7,13 @@
     android:orientation="vertical"
     android:id="@+id/relative">
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/logo"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" />-->
 
     <Button
         android:id="@+id/bnt_singlePlayer"
@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:background="@drawable/buttonshape"
         android:gravity="center"
-        android:text="Singleplayer"
+        android:text="Jeden hráč"
         android:textColor="#FFF"
         android:textSize="25.0sp"
         android:layout_centerVertical="true"
@@ -39,7 +39,7 @@
         android:background="@drawable/buttonshape"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="Multiplayer"
+        android:text="Dvaja hráči"
         android:textColor="#FFF"
         android:textSize="25.0sp"
         android:layout_below="@+id/bnt_singlePlayer"
@@ -55,7 +55,7 @@
         android:background="@drawable/buttonshape"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="Add question"
+        android:text="Vlastné otázky"
         android:textColor="#FFF"
         android:textSize="25.0sp"
         android:layout_below="@+id/btn_multiPlayer"
