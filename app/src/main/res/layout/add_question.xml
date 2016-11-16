@@ -1,91 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<EditText
-    android:layout_width="277dp"
-    android:layout_height="wrap_content"
-    android:id="@+id/optB"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-    android:hint="@string/optB" />
-
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pozadie2">
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="277dp"
         android:layout_height="wrap_content"
-        android:id="@+id/optC"
-        android:layout_below="@+id/optB"
-        android:layout_alignLeft="@+id/optB"
-        android:layout_alignStart="@+id/optB"
-        android:layout_alignRight="@+id/optB"
-        android:layout_alignEnd="@+id/optB"
-        android:hint="@string/optC" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/optA"
-        android:layout_above="@+id/optB"
-        android:layout_alignLeft="@+id/optB"
-        android:layout_alignStart="@+id/optB"
-        android:layout_alignRight="@+id/optB"
-        android:layout_alignEnd="@+id/optB"
-        android:hint="@string/optA" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkboxA"
-        android:checked="true"
-        android:layout_alignTop="@+id/optA"
-        android:layout_toRightOf="@+id/optA"
-        android:layout_toEndOf="@+id/optA" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkboxB"
-        android:checked="false"
-        android:layout_below="@+id/optA"
-        android:layout_toRightOf="@+id/optB"
-        android:layout_toEndOf="@+id/optB" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkboxC"
-        android:checked="false"
-        android:layout_below="@+id/optB"
-        android:layout_toRightOf="@+id/optC"
-        android:layout_toEndOf="@+id/optC" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/questionAdd"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/optA"
-        android:layout_alignStart="@+id/optA"
-        android:layout_marginTop="31dp"
-        android:layout_toLeftOf="@+id/checkboxA"
-        android:layout_toStartOf="@+id/checkboxA"
-        android:hint="@string/questionHint" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addQuestion"
-        android:id="@+id/addButton"
-        android:layout_below="@+id/checkboxC"
+        android:id="@+id/optB"
+        android:textColor="#FFF"
+        android:hint="@string/optB"
+        android:layout_alignTop="@+id/checkboxB"
         android:layout_centerHorizontal="true" />
 
-    <LinearLayout
-        android:id="@+id/layout_removeQuestion"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/addButton"></LinearLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/optC"
+            android:textColor="#FFF"
+            android:layout_below="@+id/optB"
+            android:layout_alignLeft="@+id/optB"
+            android:layout_alignStart="@+id/optB"
+            android:layout_alignRight="@+id/optB"
+            android:layout_alignEnd="@+id/optB"
+            android:hint="@string/optC" />
 
-</RelativeLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/optA"
+            android:textColor="#FFF"
+            android:hint="@string/optA"
+            android:layout_below="@+id/questionAdd"
+            android:layout_alignLeft="@+id/optB"
+            android:layout_alignStart="@+id/optB"
+            android:layout_toLeftOf="@+id/checkboxB"
+            android:layout_toStartOf="@+id/checkboxB" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkboxA"
+            android:checked="true"
+            android:layout_alignTop="@+id/optA"
+            android:layout_toRightOf="@+id/optA"
+            android:layout_toEndOf="@+id/optA" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkboxB"
+            android:checked="false"
+            android:layout_below="@+id/optA"
+            android:layout_toRightOf="@+id/optB"
+            android:layout_toEndOf="@+id/optB" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkboxC"
+            android:checked="false"
+            android:layout_below="@+id/optB"
+            android:layout_toRightOf="@+id/optC"
+            android:layout_toEndOf="@+id/optC" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionAdd"
+            android:textColor="#FFF"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/optA"
+            android:layout_alignStart="@+id/optA"
+            android:layout_marginTop="31dp"
+            android:layout_toStartOf="@+id/checkboxB"
+            android:hint="@string/questionHint"
+            android:layout_toLeftOf="@+id/checkboxB" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:text="@string/addQuestion"
+            android:textColor="#FFF"
+            android:id="@+id/addButton"
+            android:layout_below="@+id/optC"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:id="@+id/layout_removeQuestion"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/addButton"></LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

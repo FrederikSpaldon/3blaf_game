@@ -2,6 +2,7 @@ package a3blaf.a3blafgame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -142,9 +143,33 @@ public class AddQuestion extends Activity{
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    databaseHelper.removeQuestion(question.getID());
-                    finish();
-                    startActivity(getIntent());
+
+                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(AddQuestion.this);
+                    helpBuilder.setTitle("Vymazanie");
+                    helpBuilder.setMessage("Chcete vymazať otázku?");
+                    helpBuilder.setPositiveButton("Ano",
+                            new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int which) {
+                                    databaseHelper.removeQuestion(question.getID());
+                                    finish();
+                                    startActivity(getIntent());
+                                }
+                            });
+
+                    helpBuilder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            return;
+                        }
+                    });
+
+                    // Remember, create doesn't show the dialog
+                    AlertDialog helpDialog = helpBuilder.create();
+                    helpDialog.show();
+
+
                 }
             });
 
