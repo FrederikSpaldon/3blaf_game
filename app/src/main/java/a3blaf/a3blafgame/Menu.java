@@ -5,15 +5,18 @@ package a3blaf.a3blafgame;
  */
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +33,9 @@ public class Menu extends Activity {
     private boolean status = true;
     int skore;
     RelativeLayout relative;
+    PopupWindow popUpWindow;
+       LayoutInflater layoutInflater;
+      // RelativeLayout relative;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +57,11 @@ public class Menu extends Activity {
         SharedPreferences prefs = getSharedPreferences("skore",MODE_PRIVATE);
         skore=prefs.getInt("skore", 0);
         sk.setText("Vaše dosiahnuté skóre je: " + Integer.toString(skore));
+
+        Display d = ((WindowManager)getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        final int width = d.getWidth();
+        final int height = d.getHeight();
+
         singlePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +157,23 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
 
-                new AlertDialog.Builder(Menu.this).setTitle("O hre").setMessage(getApplicationContext().getResources().getString(R.string.ohre)).setCancelable(true).show();
+               // new AlertDialog.Builder(Menu.this).setTitle("O hre").setMessage(getApplicationContext().getResources().getString(R.string.ohre)).setCancelable(true).show();
+                layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.about,null);
+                                // popUpWindow.showAtLocation(, Gravity.BOTTOM, 10, 10);
+                                        popUpWindow = new PopupWindow(container,width,width,true);
+                                popUpWindow.showAtLocation(relative, Gravity.CENTER,0,0);
+
+                                container.setOnTouchListener(new View.OnTouchListener() {
+                                                @Override
+                                                public boolean onTouch(View view, MotionEvent motionEvent) {
+                                                        popUpWindow.dismiss();
+                                                       return true;
+                                                    }
+                                            });
+
+
+
             }
 
 

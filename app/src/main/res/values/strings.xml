@@ -8,8 +8,9 @@
     <string name="optC">Možnosť C</string>
     <string name="ohre">Aplikácia má charakter kvízovej hry a vašim cieľom je získať čo najväčšie skóre.
         V hre sú na výber otázky z rôznych oblastí, aby otázky oslovili čo najväčšiu skupinu užívateľov.
-        Hrať hru je možné v dvoch režimoch.
-        Hra pre <b>jedného hráča</b> ponúka možnosť vybrať si kategóriu otázok, po prípade si vytvoriť vlastnú kategóriu, kde je možné pridávanie/mazanie otázok.
+        "Hrať hru je možné v dvoch režimoch:
+        \nHra pre <b>jedného hráča</b> ponúka možnosť vybrať si kategóriu otázok, po prípade si vytvoriť vlastnú kategóriu, kde je možné pridávanie/mazanie otázok.
         Hra končí, ak užívateľ nesprávne odpovie na otázku alebo mu uplynie časový limit.
+        \n\nHra pre <b>dvoch hráčov</b> má podobné možnosti ako pre jedného. Koniec hry nastane, keď uplynie čas".
     </string>
 </resources>
