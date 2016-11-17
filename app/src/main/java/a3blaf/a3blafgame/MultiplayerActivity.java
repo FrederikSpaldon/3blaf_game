@@ -13,28 +13,43 @@ import java.util.List;
 
 public class MultiplayerActivity extends Activity {
     List<Question> quesList;
-    int score = 0;
+    int score1 = 0,score2=0, n=0;
     int qid = 0;
     Question currentQ;
-    TextView txtQuestion, times, scored;
-    Button button1, button2, button3;
+    String category;
+    TextView txtQuestion,txtQuestion2, times, scored1,scored2;
+    Button button1, button2, button3,button4,button5,button6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.multiplayer_activity);
+
+        Bundle b = getIntent().getExtras();
+        category = b.getString("category");
+
         DatabaseHelper db = new DatabaseHelper(this);
-        quesList = db.getAllQuestions();
+        quesList = db.getAllQuestionsByCategory(category);
         currentQ = quesList.get(qid);
-        txtQuestion = (TextView) findViewById(R.id.txtQuestion);
-        times = (TextView) findViewById(R.id.timers);
-        times.setText("");
+        txtQuestion = (TextView) findViewById(R.id.txtQuestion_m);
+        txtQuestion2 = (TextView) findViewById(R.id.txtQuestion_m2);
 
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
+        //times = (TextView) findViewById(R.id.timers);
+       // times.setText("");
 
-        scored = (TextView) findViewById(R.id.score);
+        button1 = (Button) findViewById(R.id.m_buttonA1);
+        button2 = (Button) findViewById(R.id.m_buttonB1);
+        button3 = (Button) findViewById(R.id.m_buttonC1);
 
+        button4 = (Button) findViewById(R.id.m_buttonA2);
+        button5 = (Button) findViewById(R.id.m_buttonB2);
+        button6 = (Button) findViewById(R.id.m_buttonC2);
+
+
+        scored1 = (TextView) findViewById(R.id.textView_skore1);
+        scored2 = (TextView) findViewById(R.id.textView_skore2);
+
+        scored1.setText("Skóre: "+Integer.toString(0));
+        scored2.setText("Skóre: "+Integer.toString(0));
         setQuestionView();
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -55,19 +70,47 @@ public class MultiplayerActivity extends Activity {
                 getAnswer(button3.getText().toString());
             }
         });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAnswer(button4.getText().toString());
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAnswer(button5.getText().toString());
+            }
+        });
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAnswer(button6.getText().toString());
+            }
+        });
     }
     public void getAnswer(String AnswerString) {
-        if (currentQ.getANSWER().equals(AnswerString)) {
+        if (currentQ.getANSWER().equals(AnswerString)&&((button1.isPressed()||button2.isPressed()||button3.isPressed()))) {
 
-            score++;
-            scored.setText("Score : " + score);
-        } else { //The end
+            score1++;
+           scored1.setText("Skóre: " + score1);
+            n++;
+        }
+        else if (currentQ.getANSWER().equals(AnswerString)&&((button4.isPressed()||button5.isPressed()||button6.isPressed()))){
+            score2++;
+            scored2.setText("Skóre: " + score2);
+            n++;
+        }
+
+        else { //The end
 
             Intent intent = new Intent(MultiplayerActivity.this,
                     FinalActivity.class);
-
+            n++;
             Bundle b = new Bundle();
-            b.putInt("score", score);
+
+            b.putInt("score", score1);
+            b.putInt("n", n);
             intent.putExtras(b);
             startActivity(intent);
             finish();
@@ -81,7 +124,8 @@ public class MultiplayerActivity extends Activity {
             Intent intent = new Intent(MultiplayerActivity.this,
                     FinalActivity.class);
             Bundle b = new Bundle();
-            b.putInt("score", score);
+            b.putInt("score", score1);
+            b.putInt("n", n);
             intent.putExtras(b);
             startActivity(intent);
             finish();
@@ -90,9 +134,13 @@ public class MultiplayerActivity extends Activity {
 
     private void setQuestionView() {
         txtQuestion.setText(currentQ.getQUESTION());
+        txtQuestion2.setText(currentQ.getQUESTION());
         button1.setText(currentQ.getOPTA());
         button2.setText(currentQ.getOPTB());
         button3.setText(currentQ.getOPTC());
+        button4.setText(currentQ.getOPTA());
+        button5.setText(currentQ.getOPTB());
+        button6.setText(currentQ.getOPTC());
         qid++;
     }
 }

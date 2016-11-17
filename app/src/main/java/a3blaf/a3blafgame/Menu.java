@@ -31,7 +31,7 @@ public class Menu extends Activity {
     ImageView volumeOn,volumeOff,info;
     TextView sk;
     private boolean status = true;
-    int skore;
+    int skore,posli;
     RelativeLayout relative;
     PopupWindow popUpWindow;
        LayoutInflater layoutInflater;
@@ -56,7 +56,7 @@ public class Menu extends Activity {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
         SharedPreferences prefs = getSharedPreferences("skore",MODE_PRIVATE);
         skore=prefs.getInt("skore", 0);
-        sk.setText("Vaše dosiahnuté skóre je: " + Integer.toString(skore));
+        sk.setText("dosiahnuté skóre: " + Integer.toString(skore));
 
         Display d = ((WindowManager)getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         final int width = d.getWidth();
@@ -65,12 +65,14 @@ public class Menu extends Activity {
         singlePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                posli=1;
                 if (status) {
                     mp.start();
                 }
                 Intent intent = new Intent(Menu.this,
                         CategoryChoose.class);
                 intent.putExtra("Zvuk", status);
+                intent.putExtra("zobraz",posli);
                 startActivity(intent);
                 finish();
             }
@@ -78,16 +80,19 @@ public class Menu extends Activity {
 
         multiPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
+                posli=2;
                 if (status) {
                     mp.start();
                 }
 
-                /*Intent intent = new Intent(Menu.this,
-                        MultiplayerActivity.class);
+                Intent intent = new Intent(Menu.this,
+                        CategoryChoose.class);
                 intent.putExtra("Zvuk", status);
+                intent.putExtra("zobraz",posli);
                 startActivity(intent);
-                finish();*/
+                finish();
             }
         });
 

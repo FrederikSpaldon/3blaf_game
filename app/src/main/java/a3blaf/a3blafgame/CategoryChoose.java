@@ -12,24 +12,49 @@ import android.widget.Button;
  */
 public class CategoryChoose extends Activity {
 
-    Button informatika,vlastne;
+    Button informatika,matematika,vlastne;
     Boolean status;
+    int tmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category);
-
-        informatika = (Button)findViewById(R.id.btn_informatika);
-        vlastne = (Button)findViewById(R.id.btn_vlastne);
-
+       final Bundle a= getIntent().getExtras();
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
+        setContentView(R.layout.category);
+        informatika = (Button) findViewById(R.id.btn_informatika);
+        matematika = (Button) findViewById(R.id.btn_matematika);
+        vlastne = (Button) findViewById(R.id.btn_vlastne);
+
+
 
         informatika.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putString("category", "Informatika");
+                Intent intent;
+                if(a.getInt("zobraz")==1){
+               intent = new Intent(CategoryChoose.this,
+                        SingleplayerActivity.class);
+                intent.putExtras(b);}
+                else { intent = new Intent(CategoryChoose.this,
+                        MultiplayerActivity.class);
+                    intent.putExtras(b);}
+                b = getIntent().getExtras();
+                status = b.getBoolean("Zvuk");
+                if(status) {
+                    mp.start();
+                }
+                startActivity(intent);
+                finish();
+            }
+        });
+        matematika.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putString("category", "Matematika");
                 Intent intent = new Intent(CategoryChoose.this,
                         SingleplayerActivity.class);
                 intent.putExtras(b);
@@ -53,6 +78,7 @@ public class CategoryChoose extends Activity {
                 intent.putExtras(b);
                 b = getIntent().getExtras();
                 status = b.getBoolean("Zvuk");
+                //tmp =b.getInt("zobraz");
                 if(status) {
                     mp.start();
                 }

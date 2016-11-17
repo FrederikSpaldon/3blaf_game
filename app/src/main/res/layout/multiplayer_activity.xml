@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,30 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.0"
-
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/m_buttonA1"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="A"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
-            android:layout_above="@+id/button2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-
-            />
+            android:textSize="15.0sp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/m_buttonB1"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -39,14 +38,15 @@
             android:text="B"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
-            android:layout_above="@+id/button3"
-            android:layout_alignLeft="@+id/button1"
-            android:layout_alignStart="@+id/button1"
-            android:layout_alignRight="@+id/button1"
-            android:layout_alignEnd="@+id/button1" />
+            android:textSize="15.0sp"
+            android:layout_below="@+id/m_buttonA1"
+            android:layout_alignLeft="@+id/m_buttonA1"
+            android:layout_alignStart="@+id/m_buttonA1"
+            android:layout_alignRight="@+id/m_buttonA1"
+            android:layout_alignEnd="@+id/m_buttonA1" />
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/m_buttonC1"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -54,27 +54,39 @@
             android:text="C"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
-            android:layout_above="@+id/txtQuestion"
-            android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2"
-            android:layout_alignRight="@+id/button2"
-            android:layout_alignEnd="@+id/button2" />
+            android:textSize="15.0sp"
+            android:layout_below="@+id/m_buttonB1"
+            android:layout_alignLeft="@+id/m_buttonB1"
+            android:layout_alignStart="@+id/m_buttonB1"
+            android:layout_alignRight="@+id/m_buttonB1"
+            android:layout_alignEnd="@+id/m_buttonB1" />
         <TextView
-            android:id="@+id/txtQuestion"
+            android:id="@+id/txtQuestion_m"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
 
+            android:gravity="center"
+            android:textColor="#FFF"
             android:text="Otázka"
-            android:textColor="#000"
-            android:textSize="35.0sp"
+            android:textSize="25.0sp"
             android:textStyle="bold"
             android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView_skore1"
+            android:layout_above="@+id/txtQuestion_m"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
@@ -82,7 +94,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.0"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:background="#CCC">
 
 
         <Button
@@ -92,14 +105,14 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="A"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
-            android:layout_above="@+id/m_buttonB2"
+            android:textSize="15.0sp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/m_buttonB2" />
         <Button
             android:id="@+id/m_buttonB2"
             android:layout_width="fill_parent"
@@ -109,7 +122,7 @@
             android:text="B"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
+            android:textSize="15.0sp"
             android:layout_above="@+id/m_buttonC2"
             android:layout_alignLeft="@+id/m_buttonA2"
             android:layout_alignStart="@+id/m_buttonA2"
@@ -124,25 +137,38 @@
             android:text="C"
             android:background="@drawable/buttonshape"
             android:textColor="#FFF"
-            android:textSize="25.0sp"
+            android:textSize="15.0sp"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/m_buttonB2"
             android:layout_alignStart="@+id/m_buttonB2"
             android:layout_alignRight="@+id/m_buttonB2"
             android:layout_alignEnd="@+id/m_buttonB2" />
         <TextView
-            android:id="@+id/txtQuestion2"
+            android:id="@+id/txtQuestion_m2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="Otázka"
-            android:textColor="#ffffff"
-            android:textSize="35.0sp"
+            android:textColor="#FFF"
+            android:textSize="25.0sp"
             android:textStyle="bold"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView_skore2"
+            android:layout_below="@+id/txtQuestion_m2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>
