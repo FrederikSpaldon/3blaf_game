@@ -184,7 +184,15 @@ public class SingleplayerActivity extends Activity {
 
         @Override
         public void onFinish() {
-            times.setText("Time is up");
+            times.setText("Čas vypršal");
+            Intent intent = new Intent(SingleplayerActivity.this,
+                    FinalActivity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); // Your score
+            b.putInt("n", n);
+            intent.putExtras(b); // Put your score to your next
+            startActivity(intent);
+            finish();
         }
 
         @Override
