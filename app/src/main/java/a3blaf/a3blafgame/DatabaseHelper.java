@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.addQuestion(q20);
         Question q101 = new Question("Akú pravdivostnú hodnotu má výrok:Pôjdeš von?", "nie je to výrok", "je pravdivý", "je nepravdivý", "nie je to výrok","Matematika");
         this.addQuestion(q101);
-        Question q102 = new Question("Disjnukcia sa dá nahradiť funkciou?", "minimum", "maximum", "priemer", "maximum","Matematika");
+        Question q102 = new Question("Disjunkcia sa dá nahradiť funkciou?", "minimum", "maximum", "priemer", "maximum","Matematika");
         this.addQuestion(q102);
         Question q103 = new Question("Tvrdenie, ktoré ešte nie je overené nazývame?", "kontradikcia", "axióma", "hypotéza", "hypotéza","Matematika");
         this.addQuestion(q103);

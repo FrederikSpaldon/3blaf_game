@@ -90,32 +90,23 @@ public class MultiplayerActivity extends Activity {
         });
     }
     public void getAnswer(String AnswerString) {
-        if (currentQ.getANSWER().equals(AnswerString)&&((button1.isPressed()||button2.isPressed()||button3.isPressed()))) {
-
-            score1++;
+        if ((button1.isPressed()||button2.isPressed()||button3.isPressed())) {
+            if(currentQ.getANSWER().equals(AnswerString)){
+            score1++;}
+            else score1--;
            scored1.setText("Skóre: " + score1);
             n++;
         }
-        else if (currentQ.getANSWER().equals(AnswerString)&&((button4.isPressed()||button5.isPressed()||button6.isPressed()))){
-            score2++;
+        else if (((button4.isPressed()||button5.isPressed()||button6.isPressed()))){
+            if( currentQ.getANSWER().equals(AnswerString)){
+            score2++;}
+            else score2--;
             scored2.setText("Skóre: " + score2);
             n++;
         }
 
-        else { //The end
 
-            Intent intent = new Intent(MultiplayerActivity.this,
-                    FinalActivity.class);
-            n++;
-            Bundle b = new Bundle();
-
-            b.putInt("score", score1);
-            b.putInt("n", n);
-            intent.putExtras(b);
-            startActivity(intent);
-            finish();
-        }
-        if (qid < 5) {
+        if (qid < 5 && qid < quesList.size()) {
 // if questions are not over then do this
             currentQ = quesList.get(qid);
             setQuestionView();

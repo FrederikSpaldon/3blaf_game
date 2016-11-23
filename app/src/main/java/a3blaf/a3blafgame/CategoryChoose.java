@@ -12,7 +12,7 @@ import android.widget.Button;
  */
 public class CategoryChoose extends Activity {
 
-    Button informatika,matematika,vlastne;
+    Button informatika,matematika,dejepis,vedeli,vlastne;
     Boolean status;
     int tmp;
 
@@ -24,6 +24,8 @@ public class CategoryChoose extends Activity {
         setContentView(R.layout.category);
         informatika = (Button) findViewById(R.id.btn_informatika);
         matematika = (Button) findViewById(R.id.btn_matematika);
+        dejepis = (Button) findViewById(R.id.btn_dejepis);
+        vedeli = (Button) findViewById(R.id.btn_vedeli);
         vlastne = (Button) findViewById(R.id.btn_vlastne);
 
 
@@ -55,6 +57,40 @@ public class CategoryChoose extends Activity {
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putString("category", "Matematika");
+                Intent intent = new Intent(CategoryChoose.this,
+                        SingleplayerActivity.class);
+                intent.putExtras(b);
+                b = getIntent().getExtras();
+                status = b.getBoolean("Zvuk");
+                if(status) {
+                    mp.start();
+                }
+                startActivity(intent);
+                finish();
+            }
+        });
+        dejepis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putString("category", "Dejepis");
+                Intent intent = new Intent(CategoryChoose.this,
+                        SingleplayerActivity.class);
+                intent.putExtras(b);
+                b = getIntent().getExtras();
+                status = b.getBoolean("Zvuk");
+                if(status) {
+                    mp.start();
+                }
+                startActivity(intent);
+                finish();
+            }
+        });
+        vedeli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putString("category", "Vedelisteze");
                 Intent intent = new Intent(CategoryChoose.this,
                         SingleplayerActivity.class);
                 intent.putExtras(b);
