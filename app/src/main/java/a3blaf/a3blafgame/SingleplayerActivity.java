@@ -32,7 +32,7 @@ public class SingleplayerActivity extends Activity {
     String category;
     Boolean status;
     Boolean popUp;
-
+    CounterClass timer = new CounterClass(60000, 1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +78,9 @@ public class SingleplayerActivity extends Activity {
             times.setText("00:02:00");
 
             // A timer of 60 seconds to play for, with an interval of 1 second (1000 milliseconds)
-            CounterClass timer = new CounterClass(60000, 1000);
+
             timer.start();
+
 
             // button click listeners
             option1.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +148,7 @@ public class SingleplayerActivity extends Activity {
             b.putInt("n", n);
             intent.putExtras(b); // Put your score to your next
             startActivity(intent);
+            timer.cancel();
             finish();
         }
         if (qid < 30 && qid < quesList.size()) {
@@ -261,6 +263,7 @@ public class SingleplayerActivity extends Activity {
                         Bundle b = new Bundle();
                         final Intent intent = new Intent(SingleplayerActivity.this, Menu.class);
                         startActivity(intent);
+                        timer.cancel();
                         finish();
                     }
                 });

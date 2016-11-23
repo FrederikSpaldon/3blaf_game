@@ -106,7 +106,7 @@ public class MultiplayerActivity extends Activity {
         }
 
 
-        if (qid < 5 && qid < quesList.size()) {
+        if (qid < 15 && qid < quesList.size()) {
 // if questions are not over then do this
             currentQ = quesList.get(qid);
             setQuestionView();
