@@ -96,6 +96,20 @@ public class Menu extends Activity {
             }
         });
 
+        /*options.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status) {
+                    mp.start();
+                }
+                /*Intent intent = new Intent(Menu.this,
+                        To Do);
+                intent.putExtra("Zvuk", status);
+                startActivity(intent);
+                finish();
+            }
+        });*/
+
         newQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +140,6 @@ public class Menu extends Activity {
 
             }
         });
-
         volumeOff.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -141,9 +154,9 @@ public class Menu extends Activity {
                     volumeOn.setVisibility(View.VISIBLE);
                     mp.start();
                 }
+
             }
         });
-
         info.setOnClickListener(new View.OnClickListener() {
 
             @Override
