@@ -227,30 +227,6 @@ public class SingleplayerActivity extends Activity {
         qid++;
     }
 
-    private void PopUp() {
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Koniec");
-        helpBuilder.setMessage("Chcete ukončiť hru ? Jožo povedal, že je to dobrá hra");
-        helpBuilder.setPositiveButton("Ano",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        popUp = true;
-                    }
-                });
-        helpBuilder.setPositiveButton("Nie",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        popUp = false;
-                    }
-                });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
-    }
-
     @Override
     public void onBackPressed() {
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
