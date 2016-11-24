@@ -1,11 +1,15 @@
 package a3blaf.a3blafgame;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.List;
 
 /**
  * Created by Fredo on 2. 11. 2016.
@@ -121,25 +125,35 @@ public class CategoryChoose extends Activity {
         vlastne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putString("category", "Vlastne");
-                Intent intent;
-                if (a.getInt("zobraz") == 1) {
-                    intent = new Intent(CategoryChoose.this,
-                            SingleplayerActivity.class);
-                    intent.putExtras(b);
-                } else {
-                    intent = new Intent(CategoryChoose.this,
-                            MultiplayerActivity.class);
-                    intent.putExtras(b);
+
+                DatabaseHelper db = new DatabaseHelper(CategoryChoose.this);  // database helper
+                List<Question> quesList = db.getAllQuestionsByCategory("Vlastne");  // get all question
+
+                //if empty category , create new question pop-up
+                if (quesList == null || quesList.isEmpty()) {
+                    addQuestionPopup();
                 }
-                b = getIntent().getExtras();
-                status = b.getBoolean("Zvuk");
-                if (status) {
-                    mp.start();
+                else {
+                    Bundle b = new Bundle();
+                    b.putString("category", "Vlastne");
+                    Intent intent;
+                    if (a.getInt("zobraz") == 1) {
+                        intent = new Intent(CategoryChoose.this,
+                                SingleplayerActivity.class);
+                        intent.putExtras(b);
+                    } else {
+                        intent = new Intent(CategoryChoose.this,
+                                MultiplayerActivity.class);
+                        intent.putExtras(b);
+                    }
+                    b = getIntent().getExtras();
+                    status = b.getBoolean("Zvuk");
+                    if (status) {
+                        mp.start();
+                    }
+                    startActivity(intent);
+                    finish();
                 }
-                startActivity(intent);
-                finish();
             }});
 
     }
@@ -149,5 +163,32 @@ public class CategoryChoose extends Activity {
         Intent intent = new Intent(CategoryChoose.this, Menu.class);
         startActivity(intent);
         finish();
+    }
+
+    public void addQuestionPopup(){
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Nové otázky");
+        helpBuilder.setMessage("Kategória neobsahuje žiadne otázky. Chceli by ste ich vytvoriť?");
+        helpBuilder.setPositiveButton("Ano",
+                new DialogInterface.OnClickListener() {
+                    public void onClick (DialogInterface dialog,int which){
+                        final Intent intent = new Intent(CategoryChoose.this, AddQuestion.class);
+                        intent.putExtra("Zvuk", status);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+        helpBuilder.setNegativeButton("Nie",
+                new DialogInterface.OnClickListener(){
+                    public void onClick (DialogInterface dialog,int which){
+                        final Intent intent = new Intent(CategoryChoose.this, Menu.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
 }
