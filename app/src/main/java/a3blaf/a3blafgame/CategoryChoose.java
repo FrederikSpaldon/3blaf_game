@@ -20,6 +20,7 @@ public class CategoryChoose extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        final Bundle a= getIntent().getExtras();
+
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
         setContentView(R.layout.category);
         informatika = (Button) findViewById(R.id.btn_informatika);
@@ -27,8 +28,9 @@ public class CategoryChoose extends Activity {
         dejepis = (Button) findViewById(R.id.btn_dejepis);
         vedeli = (Button) findViewById(R.id.btn_vedeli);
         vlastne = (Button) findViewById(R.id.btn_vlastne);
-
-
+        if(a.getInt("zobraz")==2){
+            vedeli.setVisibility(View.GONE);
+        }
 
         informatika.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,35 +59,47 @@ public class CategoryChoose extends Activity {
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putString("category", "Matematika");
-                Intent intent = new Intent(CategoryChoose.this,
-                        SingleplayerActivity.class);
-                intent.putExtras(b);
+                Intent intent;
+                if (a.getInt("zobraz") == 1) {
+                    intent = new Intent(CategoryChoose.this,
+                            SingleplayerActivity.class);
+                    intent.putExtras(b);
+                } else {
+                    intent = new Intent(CategoryChoose.this,
+                            MultiplayerActivity.class);
+                    intent.putExtras(b);
+                }
                 b = getIntent().getExtras();
                 status = b.getBoolean("Zvuk");
-                if(status) {
+                if (status) {
                     mp.start();
                 }
                 startActivity(intent);
                 finish();
-            }
-        });
+            }});
         dejepis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putString("category", "Dejepis");
-                Intent intent = new Intent(CategoryChoose.this,
-                        SingleplayerActivity.class);
-                intent.putExtras(b);
+                Intent intent;
+                if (a.getInt("zobraz") == 1) {
+                    intent = new Intent(CategoryChoose.this,
+                            SingleplayerActivity.class);
+                    intent.putExtras(b);
+                } else {
+                    intent = new Intent(CategoryChoose.this,
+                            MultiplayerActivity.class);
+                    intent.putExtras(b);
+                }
                 b = getIntent().getExtras();
                 status = b.getBoolean("Zvuk");
-                if(status) {
+                if (status) {
                     mp.start();
                 }
                 startActivity(intent);
                 finish();
-            }
-        });
+            }});
         vedeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,19 +123,24 @@ public class CategoryChoose extends Activity {
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putString("category", "Vlastne");
-                Intent intent = new Intent(CategoryChoose.this,
-                        SingleplayerActivity.class);
-                intent.putExtras(b);
+                Intent intent;
+                if (a.getInt("zobraz") == 1) {
+                    intent = new Intent(CategoryChoose.this,
+                            SingleplayerActivity.class);
+                    intent.putExtras(b);
+                } else {
+                    intent = new Intent(CategoryChoose.this,
+                            MultiplayerActivity.class);
+                    intent.putExtras(b);
+                }
                 b = getIntent().getExtras();
                 status = b.getBoolean("Zvuk");
-                //tmp =b.getInt("zobraz");
-                if(status) {
+                if (status) {
                     mp.start();
                 }
                 startActivity(intent);
                 finish();
-            }
-        });
+            }});
 
     }
     @Override

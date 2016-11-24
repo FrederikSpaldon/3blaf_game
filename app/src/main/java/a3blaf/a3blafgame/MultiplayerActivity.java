@@ -1,6 +1,8 @@
 package a3blaf.a3blafgame;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -133,5 +135,34 @@ public class MultiplayerActivity extends Activity {
         button5.setText(currentQ.getOPTB());
         button6.setText(currentQ.getOPTC());
         qid++;
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Koniec");
+        helpBuilder.setMessage("Chcete ukončiť hru?");
+        helpBuilder.setPositiveButton("Ano",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle b = new Bundle();
+                        final Intent intent = new Intent(MultiplayerActivity.this, Menu.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+        helpBuilder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
 }
