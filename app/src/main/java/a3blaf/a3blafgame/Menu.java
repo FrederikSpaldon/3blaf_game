@@ -30,11 +30,12 @@ public class Menu extends Activity {
     Button singlePlayer, multiPlayer, options, newQuestion, sound;
     ImageView volumeOn,volumeOff,info;
     TextView sk;
-    private boolean status = true;
+    boolean zvuk;
     int skore,posli;
     RelativeLayout relative;
     PopupWindow popUpWindow;
        LayoutInflater layoutInflater;
+    SharedPreferences prefs;
       // RelativeLayout relative;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +44,21 @@ public class Menu extends Activity {
 
         singlePlayer = (Button) findViewById(R.id.bnt_singlePlayer);
         multiPlayer = (Button) findViewById(R.id.btn_multiPlayer);
-      //  options = (Button) findViewById(R.id.btn_options);
-       newQuestion = (Button) findViewById(R.id.btn_newQuestion);
-       // sound = (Button) findViewById(R.id.btn_sound);
-        volumeOn=(ImageView) findViewById(R.id.volumeOn);
-        volumeOff=(ImageView) findViewById(R.id.volumeOff);
+        newQuestion = (Button) findViewById(R.id.btn_newQuestion);
+
+        prefs = getSharedPreferences("preferences",MODE_PRIVATE);
+        zvuk = prefs.getBoolean("zvuk", true);
+
+            volumeOn = (ImageView) findViewById(R.id.volumeOn);
+            volumeOff = (ImageView) findViewById(R.id.volumeOff);
+
+
         info=(ImageView) findViewById(R.id.btn_about);
         relative = (RelativeLayout) findViewById(R.id.relative);
-       // scoreboard=(ImageButton) findViewById(R.id.star);
         sk=(TextView) findViewById(R.id.textView);
 
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
-        SharedPreferences prefs = getSharedPreferences("skore",MODE_PRIVATE);
+
         skore=prefs.getInt("skore", 0);
         sk.setText("dosiahnuté skóre: " + Integer.toString(skore));
 
@@ -66,12 +70,11 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 posli=1;
-                if (status) {
+                if (zvuk) {
                     mp.start();
                 }
                 Intent intent = new Intent(Menu.this,
                         CategoryChoose.class);
-                intent.putExtra("Zvuk", status);
                 intent.putExtra("zobraz",posli);
                 startActivity(intent);
                 finish();
@@ -83,13 +86,12 @@ public class Menu extends Activity {
 
             public void onClick(View v) {
                 posli=2;
-                if (status) {
+                if (zvuk) {
                     mp.start();
                 }
 
                 Intent intent = new Intent(Menu.this,
                         CategoryChoose.class);
-                intent.putExtra("Zvuk", status);
                 intent.putExtra("zobraz",posli);
                 startActivity(intent);
                 finish();
@@ -99,11 +101,10 @@ public class Menu extends Activity {
         newQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (status) {
+                if (zvuk) {
                     mp.start();
                 }
                 Intent intent = new Intent(Menu.this, AddQuestion.class);
-                intent.putExtra("Zvuk", status);
                 startActivity(intent);
                 finish();
             }
@@ -113,16 +114,10 @@ public class Menu extends Activity {
 
             @Override
             public void onClick(View v) {
-                if (status) {
-                    status = false;
+                    zvuk = false;
+                    prefs.edit().putBoolean("zvuk", zvuk).apply();
                     volumeOn.setVisibility(View.GONE);
                     volumeOff.setVisibility(View.VISIBLE);
-                } else {
-                    status = true;
-                    volumeOff.setVisibility(View.GONE);
-                    volumeOn.setVisibility(View.VISIBLE);
-                    mp.start();
-                }
 
             }
         });
@@ -131,16 +126,11 @@ public class Menu extends Activity {
 
             @Override
             public void onClick(View v) {
-                if (status) {
-                    status = false;
-                    volumeOn.setVisibility(View.GONE);
-                    volumeOff.setVisibility(View.VISIBLE);
-                } else {
-                    status = true;
-                    volumeOff.setVisibility(View.GONE);
+                    zvuk = true;
+                    prefs.edit().putBoolean("zvuk", zvuk).apply();
                     volumeOn.setVisibility(View.VISIBLE);
+                    volumeOff.setVisibility(View.GONE);
                     mp.start();
-                }
             }
         });
 
@@ -159,6 +149,9 @@ public class Menu extends Activity {
                                 container.setOnTouchListener(new View.OnTouchListener() {
                                                 @Override
                                                 public boolean onTouch(View view, MotionEvent motionEvent) {
+                                                    if(zvuk) {
+                                                        mp.start();
+                                                    }
                                                         popUpWindow.dismiss();
                                                        return true;
                                                     }

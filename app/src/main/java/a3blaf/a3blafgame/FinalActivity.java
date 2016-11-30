@@ -23,7 +23,7 @@ public class FinalActivity extends Activity {
 
         int score = b.getInt("score");
         int pocetOtazok = b.getInt("n");
-        SharedPreferences prefs= this.getSharedPreferences("skore", Context.MODE_PRIVATE);
+        SharedPreferences prefs= this.getSharedPreferences("preferences", Context.MODE_PRIVATE);
         prefs.edit().putInt("skore",score).apply();
         textResult.setText("Koniec hry\nVáš stav je " + " " + score + " z " + pocetOtazok + ". \nVďaka za hru.");
 

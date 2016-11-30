@@ -8,6 +8,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class SingleplayerActivity extends Activity {
     TextView txtQuestion, times, scored;
     Button option1, option2, option3;
     String category;
-    Boolean status;
+    Boolean zvuk;
     Boolean popUp;
     CounterClass timer = new CounterClass(60000, 1000);
 
@@ -38,6 +39,9 @@ public class SingleplayerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final SharedPreferences prefs = getSharedPreferences("preferences",MODE_PRIVATE);
+        zvuk = prefs.getBoolean("zvuk", true);
 
         Bundle b = getIntent().getExtras();
         category = b.getString("category");
@@ -86,40 +90,31 @@ public class SingleplayerActivity extends Activity {
             option1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle b = getIntent().getExtras();
-                    status = b.getBoolean("Zvuk");
-                    if(status) {
+                    if(zvuk) {
                         mp.start();
                     }
                     // passing the button text to check whether the anser is correct or not
                     getAnswer(option1.getText().toString());
-                    mp.start();
                 }
             });
 
             option2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle b = getIntent().getExtras();
-                    status = b.getBoolean("Zvuk");
-                    if(status) {
+                    if(zvuk) {
                         mp.start();
                     }
                     getAnswer(option2.getText().toString());
-                    mp.start();
                 }
             });
 
             option3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle b = getIntent().getExtras();
-                    status = b.getBoolean("Zvuk");
-                    if(status) {
+                    if(zvuk) {
                         mp.start();
                     }
                     getAnswer(option3.getText().toString());
-                    mp.start();
                 }
             });
 

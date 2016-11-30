@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,6 +28,8 @@ public class AddQuestion extends Activity{
     RadioButton checkboxC;
     String category;
     Boolean status;
+    private Boolean zvuk;
+
 
     List<Question> allQuestions;
 
@@ -34,13 +37,16 @@ public class AddQuestion extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
         super.onCreate(savedInstanceState);
 
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
 
         Bundle b = getIntent().getExtras();
 
         setContentView(R.layout.add_question);
+
+        SharedPreferences prefs = getSharedPreferences("preferences",MODE_PRIVATE);
+        zvuk = prefs.getBoolean("zvuk", true);
 
         addQuestion = (Button) findViewById(R.id.addButton);
         question = (EditText) findViewById(R.id.questionAdd);
@@ -59,6 +65,7 @@ public class AddQuestion extends Activity{
         addQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(isCorrectInput()) {
                     Bundle b = getIntent().getExtras();
                     status = b.getBoolean("Zvuk");

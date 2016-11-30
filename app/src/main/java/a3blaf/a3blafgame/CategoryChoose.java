@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +18,16 @@ import java.util.List;
 public class CategoryChoose extends Activity {
 
     Button informatika,matematika,dejepis,vedeli,vlastne;
-    Boolean status;
+    Boolean status, zvuk;
     int tmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Bundle a= getIntent().getExtras();
+
+        final SharedPreferences prefs = getSharedPreferences("preferences",MODE_PRIVATE);
+        zvuk = prefs.getBoolean("zvuk", true);
 
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
         setContentView(R.layout.category);
@@ -49,9 +53,7 @@ public class CategoryChoose extends Activity {
                 else { intent = new Intent(CategoryChoose.this,
                         MultiplayerActivity.class);
                     intent.putExtras(b);}
-                b = getIntent().getExtras();
-                status = b.getBoolean("Zvuk");
-                if(status) {
+                if(zvuk) {
                     mp.start();
                 }
                 startActivity(intent);
@@ -73,9 +75,7 @@ public class CategoryChoose extends Activity {
                             MultiplayerActivity.class);
                     intent.putExtras(b);
                 }
-                b = getIntent().getExtras();
-                status = b.getBoolean("Zvuk");
-                if (status) {
+                if(zvuk) {
                     mp.start();
                 }
                 startActivity(intent);
@@ -96,9 +96,7 @@ public class CategoryChoose extends Activity {
                             MultiplayerActivity.class);
                     intent.putExtras(b);
                 }
-                b = getIntent().getExtras();
-                status = b.getBoolean("Zvuk");
-                if (status) {
+                if(zvuk) {
                     mp.start();
                 }
                 startActivity(intent);
@@ -112,9 +110,7 @@ public class CategoryChoose extends Activity {
                 Intent intent = new Intent(CategoryChoose.this,
                         SingleplayerActivity.class);
                 intent.putExtras(b);
-                b = getIntent().getExtras();
-                status = b.getBoolean("Zvuk");
-                if(status) {
+                if(zvuk) {
                     mp.start();
                 }
                 startActivity(intent);
@@ -145,8 +141,6 @@ public class CategoryChoose extends Activity {
                                 MultiplayerActivity.class);
                         intent.putExtras(b);
                     }
-                    b = getIntent().getExtras();
-                    status = b.getBoolean("Zvuk");
                     if (status) {
                         mp.start();
                     }
