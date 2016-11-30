@@ -67,9 +67,8 @@ public class AddQuestion extends Activity{
             public void onClick(View v) {
 
                 if(isCorrectInput()) {
-                    Bundle b = getIntent().getExtras();
-                    status = b.getBoolean("Zvuk");
-                    if(status) {
+
+                    if(zvuk) {
                         mp.start();
                     }
                     //add question
@@ -77,7 +76,7 @@ public class AddQuestion extends Activity{
 
                     //change activity
                     Intent intent = new Intent(AddQuestion.this,
-                            Menu.class);
+                            AddQuestion.class);
                     startActivity(intent);
                     finish();
                 }
