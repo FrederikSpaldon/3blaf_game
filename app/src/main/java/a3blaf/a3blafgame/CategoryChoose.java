@@ -18,7 +18,7 @@ import java.util.List;
 public class CategoryChoose extends Activity {
 
     Button informatika,matematika,dejepis,vedeli,vlastne;
-    Boolean status, zvuk;
+    Boolean zvuk;
     int tmp;
 
     @Override
@@ -141,7 +141,7 @@ public class CategoryChoose extends Activity {
                                 MultiplayerActivity.class);
                         intent.putExtras(b);
                     }
-                    if (status) {
+                    if (zvuk) {
                         mp.start();
                     }
                     startActivity(intent);
@@ -166,7 +166,6 @@ public class CategoryChoose extends Activity {
                 new DialogInterface.OnClickListener() {
                     public void onClick (DialogInterface dialog,int which){
                         final Intent intent = new Intent(CategoryChoose.this, AddQuestion.class);
-                        intent.putExtra("Zvuk", status);
                         startActivity(intent);
                         finish();
                     }
