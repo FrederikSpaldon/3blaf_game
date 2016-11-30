@@ -49,8 +49,17 @@ public class Menu extends Activity {
         prefs = getSharedPreferences("preferences",MODE_PRIVATE);
         zvuk = prefs.getBoolean("zvuk", true);
 
+        if(zvuk == true){
             volumeOn = (ImageView) findViewById(R.id.volumeOn);
             volumeOff = (ImageView) findViewById(R.id.volumeOff);
+        }
+        if(zvuk == false){
+            volumeOn = (ImageView) findViewById(R.id.volumeOn);
+            volumeOff = (ImageView) findViewById(R.id.volumeOff);
+            volumeOn.setVisibility(View.GONE);
+            volumeOff.setVisibility(View.VISIBLE);
+        }
+
 
 
         info=(ImageView) findViewById(R.id.btn_about);
