@@ -132,15 +132,15 @@ public class MultiplayerActivity extends Activity {
                 findViewById(R.id.m_player1_layout).setBackgroundColor(Color.WHITE);
                 findViewById(R.id.m_player2_layout).setBackgroundColor(Color.BLACK);
                 if (qid < 15 && qid < quesList.size()) {
-                    // if questions are not over then do this
                     currentQ = quesList.get(qid);
                     setQuestionView();
                 } else { //All questions
 
                     Intent intent = new Intent(MultiplayerActivity.this,
-                            FinalActivity.class);
+                            FinalActivityMultiplayer.class);
                     Bundle b = new Bundle();
                     b.putInt("score", score1);
+                    b.putInt("score2",score2);
                     b.putInt("n", n);
                     intent.putExtras(b);
                     startActivity(intent);
