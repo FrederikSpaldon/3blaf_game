@@ -115,9 +115,10 @@ public class MultiplayerActivity extends Activity {
         } else { //All questions
 
             Intent intent = new Intent(MultiplayerActivity.this,
-                    FinalActivity.class);
+                    FinalActivityMultiplayer.class);
             Bundle b = new Bundle();
             b.putInt("score", score1);
+            b.putInt("score2",score2);
             b.putInt("n", n);
             intent.putExtras(b);
             startActivity(intent);
