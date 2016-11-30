@@ -24,6 +24,7 @@ public class MultiplayerActivity extends Activity {
     String category;
     TextView txtQuestion,txtQuestion2, times, scored1,scored2;
     Button button1, button2, button3,button4,button5,button6;
+    boolean isAnswered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class MultiplayerActivity extends Activity {
         currentQ = quesList.get(qid);
         txtQuestion = (TextView) findViewById(R.id.txtQuestion_m);
         txtQuestion2 = (TextView) findViewById(R.id.txtQuestion_m2);
-
+        isAnswered = false;
         //times = (TextView) findViewById(R.id.timers);
        // times.setText("");
 
@@ -96,60 +97,55 @@ public class MultiplayerActivity extends Activity {
         });
     }
     public void getAnswer(String AnswerString) {
-
-        if ((button1.isPressed() || button2.isPressed() || button3.isPressed())) {
-            if (currentQ.getANSWER().equals(AnswerString)) {
-                findViewById(R.id.m_player2_layout).setBackgroundColor(Color.GREEN);
-                score1++;
-            } else {
-                findViewById(R.id.m_player2_layout).setBackgroundColor(Color.RED);
-                score1--;
-            }
-            scored1.setText("Skóre: " + score1);
-            n++;
-        } else if (((button4.isPressed() || button5.isPressed() || button6.isPressed()))) {
-            if (currentQ.getANSWER().equals(AnswerString)) {
-                findViewById(R.id.m_player1_layout).setBackgroundColor(Color.GREEN);
-                score2++;
-            } else {
-                findViewById(R.id.m_player1_layout).setBackgroundColor(Color.RED);
-                score2--;
-            }
-            scored2.setText("Skóre: " + score2);
-            n++;
-        }
-
-        /*try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                findViewById(R.id.m_player1_layout).setBackgroundColor(Color.WHITE);
-                findViewById(R.id.m_player2_layout).setBackgroundColor(Color.BLACK);
-                if (qid < 15 && qid < quesList.size()) {
-                    currentQ = quesList.get(qid);
-                    setQuestionView();
-                } else { //All questions
-
-                    Intent intent = new Intent(MultiplayerActivity.this,
-                            FinalActivityMultiplayer.class);
-                    Bundle b = new Bundle();
-                    b.putInt("score", score1);
-                    b.putInt("score2",score2);
-                    b.putInt("n", n);
-                    intent.putExtras(b);
-                    startActivity(intent);
-                    finish();
+        if(!isAnswered) {
+            isAnswered=true;
+            if ((button1.isPressed() || button2.isPressed() || button3.isPressed())) {
+                if (currentQ.getANSWER().equals(AnswerString)) {
+                    findViewById(R.id.m_player2_layout).setBackgroundColor(Color.GREEN);
+                    score1++;
+                } else {
+                    findViewById(R.id.m_player2_layout).setBackgroundColor(Color.RED);
+                    score1--;
                 }
-
+                scored1.setText("Skóre: " + score1);
+                n++;
+            } else if (((button4.isPressed() || button5.isPressed() || button6.isPressed()))) {
+                if (currentQ.getANSWER().equals(AnswerString)) {
+                    findViewById(R.id.m_player1_layout).setBackgroundColor(Color.GREEN);
+                    score2++;
+                } else {
+                    findViewById(R.id.m_player1_layout).setBackgroundColor(Color.RED);
+                    score2--;
+                }
+                scored2.setText("Skóre: " + score2);
+                n++;
             }
-        }, 2000);
 
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    isAnswered=false;
+                    findViewById(R.id.m_player1_layout).setBackgroundColor(Color.WHITE);
+                    findViewById(R.id.m_player2_layout).setBackgroundColor(Color.BLACK);
+                    if (qid < 15 && qid < quesList.size()) {
+                        currentQ = quesList.get(qid);
+                        setQuestionView();
+                    } else { //All questions
+
+                        Intent intent = new Intent(MultiplayerActivity.this,
+                                FinalActivityMultiplayer.class);
+                        Bundle b = new Bundle();
+                        b.putInt("score", score1);
+                        b.putInt("score2", score2);
+                        b.putInt("n", n);
+                        intent.putExtras(b);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            }, 1000);
+        }
     }
 
     private void setQuestionView() {
