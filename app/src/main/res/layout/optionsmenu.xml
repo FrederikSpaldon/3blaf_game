@@ -69,7 +69,7 @@
         android:layout_alignTop="@+id/btn_about"
         android:layout_toLeftOf="@+id/imageView"
         android:layout_toStartOf="@+id/imageView"
-        android:src="@drawable/volume_off"
+        android:src="@drawable/speaker_mute"
         android:layout_weight="1.0"
         android:visibility="gone"/>
 
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/volumeOn"
-        android:src="@drawable/volume_on"
+        android:src="@drawable/speaker"
         android:layout_weight="1.0"
         android:visibility="visible"
         android:layout_alignTop="@+id/btn_about"
