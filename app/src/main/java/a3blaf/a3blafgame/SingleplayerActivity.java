@@ -129,7 +129,7 @@ public class SingleplayerActivity extends Activity {
             // and set the text of the score view
             score++;
             n++;
-            scored.setText("Score : " + score);
+            scored.setText("Skóre: " + score);
         } else {
 
 

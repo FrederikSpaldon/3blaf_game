@@ -82,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.addQuestion(q86);
         Question q87 = new Question("Čím sa zaoberá kybernetika?", "prenosom informácií v strojoch", "ovládaním robotov", "ovládaním počítačov", "prenosom informácií v strojoch","Informatika");
         this.addQuestion(q87);
-        Question q88 = new Question("Čo znamená označenie CD-RW?", "zapisovateľné CD", "prepisovateľné CD", "ani jedna možnosť", "zapisovateľné CD","Informatika");
+        Question q88 = new Question("Čo znamená označenie CD-RW?", "zapisovateľné CD", "prepisovateľné CD", "ani jedna možnosť", "prepisovateľné CD","Informatika");
         this.addQuestion(q88);
         Question q89 = new Question("Akú veľkosť má dátový typ char?", "1bit", "8bytov", "1byte", "1byte","Informatika");
         this.addQuestion(q89);
