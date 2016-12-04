@@ -10,6 +10,8 @@
         V hre sú na výber otázky z rôznych oblastí, aby otázky oslovili čo najväčšiu skupinu užívateľov.
         "Hrať hru je možné v dvoch režimoch:
         \nHra pre <b>jedného hráča</b> ponúka možnosť vybrať si kategóriu otázok, po prípade si vytvoriť vlastnú kategóriu, kde je možné pridávanie/mazanie otázok.
+        Pridávanie otázok je možné na obrazovke Vlastné otázky. Text otázky sa píše do pola "\"Sem napíš otázku\"". Do zvyšných polí sa píšu odpovede. Správnu odpoveď je potrebné
+        označiť. Zmazanie pridanej otázky je možné kliknutím na tlačidlo s textom otázky.
         Hra končí, ak užívateľ nesprávne odpovie na otázku alebo mu uplynie časový limit.
         \n\nHra pre <b>dvoch hráčov</b> má podobné možnosti ako pre jedného. Základom tohto režímu je to že, kto skôr správne odpovie na danú otázku".
 
