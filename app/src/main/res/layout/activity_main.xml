@@ -35,7 +35,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Otázka : 1"
+                    android:text="Skóre : 0"
                     android:textColor="#ffffff"
                     android:textSize="25.0sp"
                     android:textStyle="bold" />

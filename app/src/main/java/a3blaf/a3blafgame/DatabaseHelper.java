@@ -212,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.addQuestion(q39);
         Question q40 = new Question("Za vlády ktorého panovníka prišli na naše územie Konštantín a Metod?", "za vlády Svätopluka I.", "za vlády Mojmíra I.", "za vlády Rastislava", "za vlády Svätopluka I.","Dejepis");
         this.addQuestion(q40);
-        Question q41 = new Question("Storočná válka, konflikt medzi Anglickom a Francúzskom, sa odohrávala v rokoch...", "1312-1412", "1337-1435", "1337-1453", "1337-1453","Dejepis");
+        Question q41 = new Question("Storočná vojna, konflikt medzi Anglickom a Francúzskom, sa odohrávala v rokoch...", "1312-1412", "1337-1435", "1337-1453", "1337-1453","Dejepis");
         this.addQuestion(q41);
         Question q42 = new Question("Posledným Luxemburgom na českom tróne bol syn  Karola IV. a bol to..", "Václav IV.", "Matúš Korvín", "Žigmund Luxemburský", "Žigmund Luxemburský","Dejepis");
         this.addQuestion(q42);
@@ -244,7 +244,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.addQuestion(q54);
         Question q55 = new Question("Ako zabránime nepríjemnému stekaniu sviečok?", "Potrieme ich cmarom", "Vyložíme ich na priame slnko", "Ponoríme ich do slanej vody", "Ponoríme ich do slanej vody","Vedelisteze");
         this.addQuestion(q55);
-        Question q56 = new Question("Jedna z najväčších záhad Slovenska je Val obrov. Je to...", "Vysoké opevnenie čachtického hradu", "Zemný val od Sitna po Ipeľ", "Pozostatok sopky z Vyhorlatských vrchov", "Zemný val od Sitna po Ipeľ","Vedelisteze");
+        Question q56 = new Question("Jedna z najväčších záhad Slovenska je Val obrov. Je to...", "Vysoké opevnenie čachtického hradu", "Zemný val od Sitna po Ipeľ", "Pozostatok sopky z Vihorlatských vrchov", "Zemný val od Sitna po Ipeľ","Vedelisteze");
         this.addQuestion(q56);
         Question q57 = new Question("Kto trpí triskaidekafóbiou, radšej by nemal...", "Vkročiť na prechod pre chodcov", "Bývať v hoteli na 13 poschodí", "Sadať si na zadné miesto v aute", "Bývať v hoteli na 13 poschodí","Vedelisteze");
         this.addQuestion(q57);

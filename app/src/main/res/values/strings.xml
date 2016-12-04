@@ -11,6 +11,7 @@
         "Hrať hru je možné v dvoch režimoch:
         \nHra pre <b>jedného hráča</b> ponúka možnosť vybrať si kategóriu otázok, po prípade si vytvoriť vlastnú kategóriu, kde je možné pridávanie/mazanie otázok.
         Hra končí, ak užívateľ nesprávne odpovie na otázku alebo mu uplynie časový limit.
-        \n\nHra pre <b>dvoch hráčov</b> má podobné možnosti ako pre jedného. Koniec hry nastane, keď uplynie čas".
+        \n\nHra pre <b>dvoch hráčov</b> má podobné možnosti ako pre jedného. Základom tohto režímu je to že, kto skôr správne odpovie na danú otázku".
+
     </string>
 </resources>
