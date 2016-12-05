@@ -43,7 +43,7 @@ public class MultiplayerActivity extends Activity {
         DatabaseHelper db = new DatabaseHelper(this);
         quesList = db.getAllQuestionsByCategory(category);
         currentQ = quesList.get(qid);
-        txtQuestion = (TextView) findViewById(R.id.txtQuestion_m);
+        txtQuestion = (TextView) findViewById(R.id.txtQuestion_m1);
         txtQuestion2 = (TextView) findViewById(R.id.txtQuestion_m2);
         isAnswered = false;
         //times = (TextView) findViewById(R.id.timers);
