@@ -16,15 +16,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-//To be done
-
 public class MultiplayerActivity extends Activity {
     List<Question> quesList;
     int score1 = 0,score2=0, n=0;
     int qid = 0;
     Question currentQ;
     String category;
-    TextView txtQuestion,txtQuestion2, times, scored1,scored2;
+    TextView txtQuestion,txtQuestion2, scored1,scored2;
     Button button1, button2, button3,button4,button5,button6;
     boolean isAnswered, zvuk;
 
@@ -46,8 +44,6 @@ public class MultiplayerActivity extends Activity {
         txtQuestion = (TextView) findViewById(R.id.txtQuestion_m1);
         txtQuestion2 = (TextView) findViewById(R.id.txtQuestion_m2);
         isAnswered = false;
-        //times = (TextView) findViewById(R.id.timers);
-       // times.setText("");
 
         button1 = (Button) findViewById(R.id.m_buttonA1);
         button2 = (Button) findViewById(R.id.m_buttonB1);

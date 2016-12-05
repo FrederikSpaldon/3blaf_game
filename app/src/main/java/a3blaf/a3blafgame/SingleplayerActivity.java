@@ -162,6 +162,7 @@ public class SingleplayerActivity extends Activity {
             b.putInt("n", n);
             intent.putExtras(b); // Put your score to your next
             startActivity(intent);
+            timer.cancel();
             finish();
         }
 
