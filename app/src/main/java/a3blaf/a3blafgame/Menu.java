@@ -25,6 +25,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class Menu extends Activity {
 
     Button singlePlayer, multiPlayer, options, newQuestion, sound;
@@ -36,6 +38,8 @@ public class Menu extends Activity {
     PopupWindow popUpWindow;
        LayoutInflater layoutInflater;
     SharedPreferences prefs;
+    Context context;
+    MediaPlayer mp;
       // RelativeLayout relative;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class Menu extends Activity {
 
         prefs = getSharedPreferences("preferences",MODE_PRIVATE);
         zvuk = prefs.getBoolean("zvuk", true);
+        context = this;
 
         if(zvuk == true){
             volumeOn = (ImageView) findViewById(R.id.volumeOn);
@@ -66,7 +71,7 @@ public class Menu extends Activity {
         relative = (RelativeLayout) findViewById(R.id.relative);
         sk=(TextView) findViewById(R.id.textView);
 
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
+        mp = MediaPlayer.create(this, R.raw.latch_click);
 
         skore=prefs.getInt("skore", 0);
         sk.setText("dosiahnuté skóre: " + Integer.toString(skore));
@@ -80,6 +85,7 @@ public class Menu extends Activity {
             public void onClick(View v) {
                 posli=1;
                 if (zvuk) {
+                    mp = MediaPlayer.create(context, R.raw.latch_click);
                     mp.start();
                 }
                 Intent intent = new Intent(Menu.this,
@@ -96,6 +102,7 @@ public class Menu extends Activity {
             public void onClick(View v) {
                 posli=2;
                 if (zvuk) {
+                    mp = MediaPlayer.create(context, R.raw.latch_click);
                     mp.start();
                 }
 
@@ -111,6 +118,7 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 if (zvuk) {
+                    mp = MediaPlayer.create(context, R.raw.latch_click);
                     mp.start();
                 }
                 Intent intent = new Intent(Menu.this, AddQuestion.class);
@@ -139,6 +147,7 @@ public class Menu extends Activity {
                     prefs.edit().putBoolean("zvuk", zvuk).apply();
                     volumeOn.setVisibility(View.VISIBLE);
                     volumeOff.setVisibility(View.GONE);
+                    mp = MediaPlayer.create(context, R.raw.latch_click);
                     mp.start();
             }
         });
@@ -159,6 +168,7 @@ public class Menu extends Activity {
                                                 @Override
                                                 public boolean onTouch(View view, MotionEvent motionEvent) {
                                                     if(zvuk) {
+                                                        mp = MediaPlayer.create(context, R.raw.latch_click);
                                                         mp.start();
                                                     }
                                                         popUpWindow.dismiss();

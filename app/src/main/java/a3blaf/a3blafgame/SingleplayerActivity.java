@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -32,8 +33,9 @@ public class SingleplayerActivity extends Activity {
     Button option1, option2, option3;
     String category;
     Boolean zvuk;
-    Boolean popUp;
+    Context context;
     CounterClass timer = new CounterClass(60000, 1000);
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class SingleplayerActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);  // database helper
         quesList = db.getAllQuestionsByCategory(category);  // get all question
+        context = this;
 
         //if empty category go back
         if(quesList==null || quesList.isEmpty()) {
@@ -67,7 +70,7 @@ public class SingleplayerActivity extends Activity {
             option3 = (Button) findViewById(R.id.button3);
 
 
-            final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
+            mp = MediaPlayer.create(this, R.raw.latch_click);
 
 
             // the textview in which score will be displayed
@@ -91,6 +94,7 @@ public class SingleplayerActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     if(zvuk) {
+                        mp = MediaPlayer.create(context, R.raw.latch_click);
                         mp.start();
                     }
                     // passing the button text to check whether the anser is correct or not
@@ -102,6 +106,7 @@ public class SingleplayerActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     if(zvuk) {
+                        mp = MediaPlayer.create(context, R.raw.latch_click);
                         mp.start();
                     }
                     getAnswer(option2.getText().toString());
@@ -112,6 +117,7 @@ public class SingleplayerActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     if(zvuk) {
+                        mp = MediaPlayer.create(context, R.raw.latch_click);
                         mp.start();
                     }
                     getAnswer(option3.getText().toString());

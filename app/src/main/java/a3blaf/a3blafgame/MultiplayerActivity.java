@@ -2,6 +2,7 @@ package a3blaf.a3blafgame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +28,7 @@ public class MultiplayerActivity extends Activity {
     boolean isAnswered, zvuk;
     SharedPreferences prefs;
     MediaPlayer mp;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MultiplayerActivity extends Activity {
         mp = MediaPlayer.create(this, R.raw.latch_click);
         prefs = getSharedPreferences("preferences",MODE_PRIVATE);
         zvuk = prefs.getBoolean("zvuk", true);
+        context=this;
 
         Bundle b = getIntent().getExtras();
         category = b.getString("category");
@@ -66,48 +69,46 @@ public class MultiplayerActivity extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button1.getText().toString());
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button2.getText().toString());
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button3.getText().toString());
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button4.getText().toString());
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button5.getText().toString());
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(zvuk) mp.start();
                 getAnswer(button6.getText().toString());
             }
         });
     }
     public void getAnswer(String AnswerString) {
         if(!isAnswered) {
+            if(zvuk) {
+                mp = MediaPlayer.create(context, R.raw.latch_click);
+                mp.start();
+            }
             isAnswered=true;
             if ((button1.isPressed() || button2.isPressed() || button3.isPressed())) {
                 if (currentQ.getANSWER().equals(AnswerString)) {
