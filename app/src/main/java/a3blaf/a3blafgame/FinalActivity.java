@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 
 public class FinalActivity extends Activity {
+    Boolean zvuk;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +21,9 @@ public class FinalActivity extends Activity {
         setContentView(R.layout.activity_result);
 
         TextView textResult = (TextView) findViewById(R.id.textResult);
-
         Bundle b = getIntent().getExtras();
+        zvuk = getSharedPreferences("preferences",MODE_PRIVATE).getBoolean("zvuk", true);
+        mp = MediaPlayer.create(this, R.raw.latch_click);
 
         int score = b.getInt("score");
         int pocetOtazok = b.getInt("n");
@@ -30,16 +34,15 @@ public class FinalActivity extends Activity {
     }
 
     public void playagain(View o) {
-
+        if (zvuk) mp.start();
         Intent intent = new Intent(this, Menu.class);
-
         startActivity(intent);
 
 
     }
+
     @Override
     public void onBackPressed() {
-        Bundle b = new Bundle();
         Intent intent = new Intent(FinalActivity.this, Menu.class);
         startActivity(intent);
         finish();

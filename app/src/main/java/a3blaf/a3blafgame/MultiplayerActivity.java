@@ -25,14 +25,16 @@ public class MultiplayerActivity extends Activity {
     TextView txtQuestion,txtQuestion2, scored1,scored2;
     Button button1, button2, button3,button4,button5,button6;
     boolean isAnswered, zvuk;
+    SharedPreferences prefs;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multiplayer_activity);
 
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.latch_click);
-        final SharedPreferences prefs = getSharedPreferences("preferences",MODE_PRIVATE);
+        mp = MediaPlayer.create(this, R.raw.latch_click);
+        prefs = getSharedPreferences("preferences",MODE_PRIVATE);
         zvuk = prefs.getBoolean("zvuk", true);
 
         Bundle b = getIntent().getExtras();
@@ -64,55 +66,43 @@ public class MultiplayerActivity extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button1.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button2.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button3.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button4.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button5.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(zvuk) mp.start();
                 getAnswer(button6.getText().toString());
-                if(zvuk) {
-                    mp.start();
-                }
             }
         });
     }

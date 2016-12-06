@@ -2,6 +2,7 @@ package a3blaf.a3blafgame;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -9,12 +10,17 @@ import android.widget.TextView;
  * Created by Laci on 30.11.2016.
  */
 public class FinalActivityMultiplayer extends Activity {
+    Boolean zvuk;
+    MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_multiplayer);
         TextView textResult = (TextView) findViewById(R.id.textM1);
         TextView textResult2 = (TextView) findViewById(R.id.textM2);
+        zvuk = getSharedPreferences("preferences",MODE_PRIVATE).getBoolean("zvuk", true);
+        mp = MediaPlayer.create(this, R.raw.latch_click);
 
         Bundle b = getIntent().getExtras();
         int score1 = b.getInt("score");
@@ -33,7 +39,7 @@ public class FinalActivityMultiplayer extends Activity {
 
     @Override
     public void onBackPressed() {
-        Bundle b = new Bundle();
+        if (zvuk) mp.start();
         Intent intent = new Intent(FinalActivityMultiplayer.this, Menu.class);
         startActivity(intent);
         finish();

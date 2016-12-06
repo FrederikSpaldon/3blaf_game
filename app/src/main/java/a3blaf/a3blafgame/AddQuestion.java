@@ -27,7 +27,6 @@ public class AddQuestion extends Activity{
     RadioButton checkboxB;
     RadioButton checkboxC;
     String category;
-    Boolean status;
     private Boolean zvuk;
 
 
