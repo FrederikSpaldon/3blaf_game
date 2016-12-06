@@ -25,8 +25,11 @@
         android:text="Jeden hráč"
         android:textColor="#FFF"
         android:textSize="25.0sp"
-        android:layout_centerVertical="true"
-        />
+
+        android:layout_marginTop="152dp"
+        android:layout_below="@+id/btn_about"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btn_multiPlayer"
@@ -67,8 +70,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/volumeOff"
         android:layout_alignTop="@+id/btn_about"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView"
         android:src="@drawable/speaker_mute"
         android:layout_weight="1.0"
         android:visibility="gone"/>
@@ -101,9 +102,7 @@
         android:src="@drawable/speaker"
         android:layout_weight="1.0"
         android:visibility="visible"
-        android:layout_alignTop="@+id/btn_about"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView" />
+        android:layout_alignTop="@+id/btn_about"/>
 
 
 </RelativeLayout>
